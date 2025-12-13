@@ -14,6 +14,20 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.png',
   },
+  openGraph: {
+    title: "classduo",
+    siteName: "classduo",
+    description: "We make product for college education innovation.",
+    url: "https://classduo.ai",
+    type: "website",
+    locale: "ko_KR",
+  },
+  twitter: {
+    card: "summary",
+    title: "classduo",
+    description: "We make product for college education innovation.",
+    site: "@classduo",
+  },
 };
 
 export default function RootLayout({
