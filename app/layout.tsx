@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "classduo.ai",
   description: "We make product for college education innovation",
   icons: {
-    icon: '/favicon.ico',
+    icon: '/icon.png',
   },
 };
 
