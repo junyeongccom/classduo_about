@@ -9,8 +9,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "sakana.ai",
-  description: "AI-powered creative tools for the next generation",
+  title: "classduo.ai",
+  description: "We make product for college education innovation",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
