@@ -385,14 +385,14 @@ const BoidsBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full"
-      style={{ 
+      className="absolute inset-0 w-full h-full"
+      style={{
         zIndex: 1,
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '100%',
         cursor: 'pointer'
       }}
     />

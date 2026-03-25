@@ -9,24 +9,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "classduo.ai",
-  description: "We make product for college education innovation",
+  title: "Aplus - AI 대학 교육 혁신 플랫폼",
+  description: "AI 기술로 대학 교육의 새로운 패러다임을 만듭니다. 맞춤형 AI 튜터링, 적응형 학습, 강의 분석 솔루션을 제공합니다.",
   icons: {
     icon: '/icon.png',
   },
   openGraph: {
-    title: "classduo",
-    siteName: "classduo",
-    description: "We make product for college education innovation.",
+    title: "Aplus - AI 대학 교육 혁신 플랫폼",
+    siteName: "Aplus",
+    description: "AI 기술로 대학 교육의 새로운 패러다임을 만듭니다.",
     url: "https://classduo.ai",
     type: "website",
     locale: "ko_KR",
   },
   twitter: {
     card: "summary",
-    title: "classduo",
-    description: "We make product for college education innovation.",
-    site: "@classduo",
+    title: "Aplus",
+    description: "AI 기술로 대학 교육의 새로운 패러다임을 만듭니다.",
   },
 };
 
