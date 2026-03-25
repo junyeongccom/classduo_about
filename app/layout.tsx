@@ -9,14 +9,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aplus - AI 대학 교육 혁신 플랫폼",
+  title: "Classduo - AI 대학 교육 혁신 플랫폼",
   description: "AI 기술로 대학 교육의 새로운 패러다임을 만듭니다. 맞춤형 AI 튜터링, 적응형 학습, 강의 분석 솔루션을 제공합니다.",
   icons: {
     icon: '/icon.png',
   },
   openGraph: {
-    title: "Aplus - AI 대학 교육 혁신 플랫폼",
-    siteName: "Aplus",
+    title: "Classduo - AI 대학 교육 혁신 플랫폼",
+    siteName: "Classduo",
     description: "AI 기술로 대학 교육의 새로운 패러다임을 만듭니다.",
     url: "https://classduo.ai",
     type: "website",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Aplus",
+    title: "Classduo",
     description: "AI 기술로 대학 교육의 새로운 패러다임을 만듭니다.",
   },
 };

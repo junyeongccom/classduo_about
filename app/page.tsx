@@ -37,7 +37,7 @@ const achievements = [
   {
     year: '2025 1학기',
     title: '고려대학교 SW프로그래밍의 기초 수업 도입',
-    description: '700명 규모 수업에 Aplus 플랫폼 도입',
+    description: '700명 규모 수업에 Classduo 플랫폼 도입',
   },
   {
     year: '2025 2학기',
@@ -64,7 +64,7 @@ export default function Home() {
         <BoidsBackground />
         <div className="relative z-20 flex flex-col items-center justify-center px-6 text-center pointer-events-none">
           <h1 className="mb-6 text-7xl font-bold tracking-tight text-[#222] md:text-9xl">
-            Aplus
+            Classduo
           </h1>
           <p className="mb-4 text-xl font-light text-[#555] md:text-2xl">
             AI로 대학 교육을 혁신합니다
@@ -75,10 +75,12 @@ export default function Home() {
           </p>
           <div className="flex gap-4 pointer-events-auto">
             <a
-              href="#services"
+              href="https://korea.aplus.io.kr"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-[#333] px-8 py-3 text-white text-sm font-medium transition-all duration-300 hover:bg-[#111]"
             >
-              서비스 알아보기
+              서비스 접속
             </a>
             <a
               href="#contact"
@@ -102,7 +104,7 @@ export default function Home() {
       <section id="about" className="py-24 md:py-32 bg-[#f9fafb]">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="mb-6 text-3xl font-semibold text-[#222] md:text-4xl">
-            About Aplus
+            About Classduo
           </h2>
           <div className="mx-auto mb-8 h-1 w-12 bg-[#333]" />
           <p className="mb-8 text-lg leading-relaxed text-[#555] md:text-xl">
@@ -208,7 +210,7 @@ export default function Home() {
           </h2>
           <div className="mx-auto mb-8 h-1 w-12 bg-[#333]" />
           <p className="mb-12 text-lg text-[#666]">
-            Aplus에 대해 더 알고 싶으시면 연락해 주세요.
+            Classduo에 대해 더 알고 싶으시면 연락해 주세요.
           </p>
 
           <div className="mb-16 grid gap-8 md:grid-cols-3">
@@ -238,7 +240,7 @@ export default function Home() {
       <footer className="border-t border-[#eee] py-8">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <p className="text-sm text-[#999]">
-            &copy; {new Date().getFullYear()} Aplus. All rights reserved.
+            &copy; {new Date().getFullYear()} Classduo. All rights reserved.
           </p>
         </div>
       </footer>
