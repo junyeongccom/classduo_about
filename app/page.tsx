@@ -108,7 +108,7 @@ export default function Home() {
           </h2>
           <div className="mx-auto mb-8 h-1 w-12 bg-[#333]" />
           <p className="mb-8 text-lg leading-relaxed text-[#555] md:text-xl">
-            에이플러스는 AI 기술을 활용하여 대학 교육을 혁신하는 에듀테크 기업입니다.
+            Classduo는 AI 기술을 활용하여 대학 교육을 혁신하는 에듀테크 기업입니다.
           </p>
           <p className="text-base leading-relaxed text-[#777] md:text-lg">
             우리는 대학 교육이 더 재미있고, 효과적이며,<br className="hidden md:inline" />
@@ -162,7 +162,7 @@ export default function Home() {
             </h2>
             <div className="mx-auto mb-8 h-1 w-12 bg-[#333]" />
             <p className="text-lg text-[#666]">
-              에이플러스의 주요 성과
+              Classduo의 주요 성과
             </p>
           </div>
 
