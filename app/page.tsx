@@ -63,16 +63,33 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
         <BoidsBackground />
         <div className="relative z-20 flex flex-col items-center justify-center px-6 text-center pointer-events-none">
-          <h1 className="mb-6 text-7xl font-bold tracking-tight text-[#222] md:text-9xl">
-            Classduo
-          </h1>
+          <div className="mb-6 w-full max-w-2xl md:max-w-3xl px-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/classduo 글자 로고.png"
+              alt="Classduo"
+              width={2160}
+              height={296}
+              className="w-full h-auto"
+            />
+          </div>
           <p className="mb-4 text-xl font-light text-[#555] md:text-2xl">
             AI로 대학 교육을 혁신합니다
           </p>
-          <p className="mb-12 max-w-2xl text-base font-light leading-relaxed text-[#888] md:text-lg">
+          <p className="mb-8 max-w-2xl text-base font-light leading-relaxed text-[#888] md:text-lg">
             맞춤형 AI 튜터링, 강의 분석, 적응형 학습 솔루션으로<br />
             대학 교육의 새로운 패러다임을 만듭니다.
           </p>
+          <div className="mb-12 w-full max-w-3xl overflow-hidden rounded-2xl shadow-xl pointer-events-auto">
+            <video
+              src="/5.에이플러스_MASTER_TXTED.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-auto"
+            />
+          </div>
           <div className="flex gap-4 pointer-events-auto">
             <a
               href="https://korea.aplus.io.kr"
