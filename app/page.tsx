@@ -63,7 +63,7 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
         <BoidsBackground />
         <div className="relative z-20 flex flex-col items-center justify-center px-6 text-center pointer-events-none">
-          <div className="mb-6 w-full max-w-2xl md:max-w-3xl px-4">
+          <div className="mb-6 w-full max-w-sm md:max-w-xl px-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/classduo 글자 로고.png"
@@ -80,7 +80,7 @@ export default function Home() {
             맞춤형 AI 튜터링, 강의 분석, 적응형 학습 솔루션으로<br />
             대학 교육의 새로운 패러다임을 만듭니다.
           </p>
-          <div className="mb-12 w-full max-w-3xl overflow-hidden rounded-2xl shadow-xl pointer-events-auto">
+          <div className="mb-10 w-full max-w-md md:max-w-xl overflow-hidden rounded-2xl shadow-xl pointer-events-auto">
             <video
               src="/5.에이플러스_MASTER_TXTED.mp4"
               autoPlay
