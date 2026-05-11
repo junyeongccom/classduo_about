@@ -83,9 +83,8 @@ export default function Home() {
           <div className="mb-10 w-full max-w-md md:max-w-xl overflow-hidden rounded-2xl shadow-xl pointer-events-auto">
             <video
               src="/5.에이플러스_MASTER_TXTED.mp4"
-              autoPlay
-              loop
-              muted
+              controls
+              preload="metadata"
               playsInline
               className="w-full h-auto"
             />
