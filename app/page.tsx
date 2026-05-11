@@ -84,6 +84,8 @@ export default function Home() {
             <video
               src="/5.에이플러스_MASTER_TXTED.mp4"
               controls
+              controlsList="nodownload noplaybackrate noremoteplayback"
+              disablePictureInPicture
               preload="metadata"
               playsInline
               className="w-full h-auto"
