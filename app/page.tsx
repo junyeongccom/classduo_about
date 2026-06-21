@@ -236,7 +236,7 @@ export default function Home() {
               <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#999]">
                 Email
               </p>
-              <p className="text-[#333]">alex@classduo.ai.kr<br />cto@classduo.ai.kr</p>
+              <p className="text-[#333]">alex@classduo.ai.kr<br />junyeongc@classduo.ai.kr</p>
             </div>
             <div>
               <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#999]">
