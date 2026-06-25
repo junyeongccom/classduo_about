@@ -1,28 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
-});
-
 export const metadata: Metadata = {
-  title: "Classduo - AI 대학 교육 혁신 플랫폼",
-  description: "AI 기술로 대학 교육의 새로운 패러다임을 만듭니다. 맞춤형 AI 튜터링, 적응형 학습, 강의 분석 솔루션을 제공합니다.",
+  title: "classduo.ai — Building Engaging AI Learning Platform",
+  description: "Building Engaging AI Learning Platform",
   openGraph: {
-    title: "Classduo - AI 대학 교육 혁신 플랫폼",
-    siteName: "Classduo",
-    description: "AI 기술로 대학 교육의 새로운 패러다임을 만듭니다.",
-    url: "https://classduo.ai",
+    title: "classduo.ai — Building Engaging AI Learning Platform",
+    siteName: "classduo.ai",
+    description: "Building Engaging AI Learning Platform",
+    url: "https://classduo.ai.kr",
     type: "website",
-    locale: "ko_KR",
+    locale: "en_US",
   },
   twitter: {
     card: "summary",
-    title: "Classduo",
-    description: "AI 기술로 대학 교육의 새로운 패러다임을 만듭니다.",
+    title: "classduo.ai",
+    description: "Building Engaging AI Learning Platform",
   },
 };
 
@@ -32,10 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
-      </body>
+    <html lang="en">
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
