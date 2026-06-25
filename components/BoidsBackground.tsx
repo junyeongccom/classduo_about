@@ -17,12 +17,10 @@ interface Boat {
 // 보트 부위별 색 — 회색(기본) / 초록(에셋 원색)
 const HULL_GRAY = [150, 158, 163, 0.7];
 const HULL_GREEN = [30, 158, 87, 0.95]; // #1E9E57
-const DECK_GRAY = [224, 228, 230, 0.7];
-const DECK_GREEN = [210, 238, 221, 0.95]; // #D2EEDD
 const SOLID_GRAY = [150, 158, 163, 0.8];
-const SOLID_GREEN = [30, 158, 87, 1]; // 콘솔·시트
+const SOLID_GREEN = [30, 158, 87, 1]; // 콘솔
 const LINE_GRAY = [150, 158, 163, 0.85];
-const LINE_GREEN = [30, 158, 87, 1]; // 데크 외곽선·모터
+const LINE_GREEN = [30, 158, 87, 1]; // 모터
 
 const rgba = (c: number[]) => `rgba(${c[0]}, ${c[1]}, ${c[2]}, ${c[3]})`;
 
@@ -38,12 +36,10 @@ const BoidsBackground = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // 보트 형태 — 첨부 SVG(01-rib-dinghy (1).svg) 패스. 뱃머리=오른쪽(+x), viewBox 580x300
-    const HULL = new Path2D('M40 92 C72 80 140 80 250 82 C350 84 420 90 470 106 C508 120 536 138 552 150 C536 162 508 180 470 194 C420 210 350 216 250 218 C140 220 72 220 40 208 C24 202 24 192 66 196 C110 198 180 200 250 200 C350 198 415 194 462 182 C498 170 518 158 524 150 C518 142 498 130 462 118 C415 106 350 102 250 100 C180 100 110 102 66 104 C24 108 24 98 40 92 Z');
-    const DECK = new Path2D('M140 114 L300 112 L324 112 L346 124 L346 176 L324 188 L300 188 L140 186 Q132 186 132 178 L132 122 Q132 114 140 114 Z');
-    const CONSOLE = new Path2D('M84 126 L116 126 Q122 126 122 132 L122 168 Q122 174 116 174 L84 174 Q78 174 78 168 L78 132 Q78 126 84 126 Z');
-    const SEAT = new Path2D('M60 138 L78 138 L78 162 L60 162 Q54 162 54 156 L54 144 Q54 138 60 138 Z');
-    const MOTOR = new Path2D('M54 150 L44 150');
+    // 보트 형태 — 첨부 SVG(01-rib-dinghy.svg) 심플 버전(솔리드 선체). 뱃머리=오른쪽(+x), viewBox 580x300
+    const HULL = new Path2D('M30 96 C55 82 120 82 250 84 C350 86 420 92 470 108 C510 122 538 140 552 150 C538 160 510 178 470 192 C420 208 350 214 250 216 C120 218 55 218 30 204 Q20 198 22 188 Q26 180 80 178 L80 122 Q26 120 22 112 Q20 102 30 96 Z');
+    const CONSOLE = new Path2D('M58 138 L80 138 L80 162 L58 162 Q52 162 52 156 L52 144 Q52 138 58 138 Z');
+    const MOTOR = new Path2D('M52 150 L42 150');
 
     // 캔버스 크기 설정
     const resizeCanvas = () => {
@@ -240,14 +236,13 @@ const BoidsBackground = () => {
       if (boat.y > canvas.height) boat.y = 0;
     };
 
-    // 보트 그리기 — 데크·콘솔·모터까지 풀디테일. 초록(리더/지정 보트)이면 에셋 원색, 아니면 회색.
+    // 보트 그리기 — 심플 버전(솔리드 선체 + 콘솔 + 모터). 초록(리더/지정 보트)이면 에셋 원색, 아니면 회색.
     // 뱃머리(SVG 기본 방향 →)를 진행 방향으로 회전시켜 "전진" 표현.
     const drawBoat = (boat: Boat) => {
       const s = boat.scale;
       const isGreen = boat.leader || boat.green;
 
       const hull = isGreen ? HULL_GREEN : HULL_GRAY;
-      const deck = isGreen ? DECK_GREEN : DECK_GRAY;
       const solid = isGreen ? SOLID_GREEN : SOLID_GRAY;
       const line = isGreen ? LINE_GREEN : LINE_GRAY;
 
@@ -259,21 +254,13 @@ const BoidsBackground = () => {
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
 
-      // 헐(튜브 링)
+      // 선체(솔리드)
       ctx.fillStyle = rgba(hull);
-      ctx.fill(HULL, 'evenodd');
+      ctx.fill(HULL);
 
-      // 데크(바닥) + 외곽선
-      ctx.fillStyle = rgba(deck);
-      ctx.fill(DECK);
-      ctx.strokeStyle = rgba(line);
-      ctx.lineWidth = 2.4 / s;
-      ctx.stroke(DECK);
-
-      // 콘솔 + 시트
+      // 콘솔
       ctx.fillStyle = rgba(solid);
       ctx.fill(CONSOLE);
-      ctx.fill(SEAT);
 
       // 모터
       ctx.strokeStyle = rgba(line);

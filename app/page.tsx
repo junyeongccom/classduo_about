@@ -72,7 +72,9 @@ export default function Home() {
             </h1>
             <svg
               viewBox="0 0 580 300"
-              fill="none"
+              fill="#1E9E57"
+              stroke="#1E9E57"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
               role="img"
@@ -80,20 +82,9 @@ export default function Home() {
               className="block h-auto shrink-0"
               style={{ width: 'clamp(110px, 15vw, 200px)', transform: 'rotate(-32deg)' }}
             >
-              <path
-                fillRule="evenodd"
-                fill="#1E9E57"
-                d="M40 92 C72 80 140 80 250 82 C350 84 420 90 470 106 C508 120 536 138 552 150 C536 162 508 180 470 194 C420 210 350 216 250 218 C140 220 72 220 40 208 C24 202 24 192 66 196 C110 198 180 200 250 200 C350 198 415 194 462 182 C498 170 518 158 524 150 C518 142 498 130 462 118 C415 106 350 102 250 100 C180 100 110 102 66 104 C24 108 24 98 40 92 Z"
-              />
-              <path
-                fill="#D2EEDD"
-                stroke="#1E9E57"
-                strokeWidth="2.6"
-                d="M140 114 L300 112 L324 112 L346 124 L346 176 L324 188 L300 188 L140 186 Q132 186 132 178 L132 122 Q132 114 140 114 Z"
-              />
-              <path fill="#1E9E57" d="M84 126 L116 126 Q122 126 122 132 L122 168 Q122 174 116 174 L84 174 Q78 174 78 168 L78 132 Q78 126 84 126 Z" />
-              <path fill="#1E9E57" d="M60 138 L78 138 L78 162 L60 162 Q54 162 54 156 L54 144 Q54 138 60 138 Z" />
-              <path stroke="#1E9E57" strokeWidth="3" d="M54 150 L44 150" />
+              <path d="M30 96 C55 82 120 82 250 84 C350 86 420 92 470 108 C510 122 538 140 552 150 C538 160 510 178 470 192 C420 208 350 214 250 216 C120 218 55 218 30 204 Q20 198 22 188 Q26 180 80 178 L80 122 Q26 120 22 112 Q20 102 30 96 Z" />
+              <path d="M58 138 L80 138 L80 162 L58 162 Q52 162 52 156 L52 144 Q52 138 58 138 Z" />
+              <path d="M52 150 L42 150" strokeWidth="3" />
             </svg>
           </div>
           <p
