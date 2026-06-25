@@ -14,13 +14,9 @@ interface Boat {
   heading: number;     // 현재 뱃머리 방향(rad) — 진행 방향으로 부드럽게 회전
 }
 
-// 보트 부위별 색 — 회색(기본) / 초록(에셋 원색)
-const HULL_GRAY = [150, 158, 163, 0.7];
-const HULL_GREEN = [30, 158, 87, 0.95]; // #1E9E57
-const SOLID_GRAY = [150, 158, 163, 0.8];
-const SOLID_GREEN = [30, 158, 87, 1]; // 콘솔
+// 보트 선 색 — 회색(기본) / 초록(브랜드)
 const LINE_GRAY = [150, 158, 163, 0.85];
-const LINE_GREEN = [30, 158, 87, 1]; // 모터
+const LINE_GREEN = [30, 158, 87, 1]; // #1E9E57
 
 const rgba = (c: number[]) => `rgba(${c[0]}, ${c[1]}, ${c[2]}, ${c[3]})`;
 
@@ -36,10 +32,10 @@ const BoidsBackground = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // 보트 형태 — 첨부 SVG(01-rib-dinghy.svg) 심플 버전(솔리드 선체). 뱃머리=오른쪽(+x), viewBox 580x300
-    const HULL = new Path2D('M30 96 C55 82 120 82 250 84 C350 86 420 92 470 108 C510 122 538 140 552 150 C538 160 510 178 470 192 C420 208 350 214 250 216 C120 218 55 218 30 204 Q20 198 22 188 Q26 180 80 178 L80 122 Q26 120 22 112 Q20 102 30 96 Z');
-    const CONSOLE = new Path2D('M58 138 L80 138 L80 162 L58 162 Q52 162 52 156 L52 144 Q52 138 58 138 Z');
-    const MOTOR = new Path2D('M52 150 L42 150');
+    // 보트 형태 — 첨부 SVG(04-sailboat.svg) 라인아트 돛단배. 뱃머리=위(↑), viewBox 200x200
+    const SAIL_OUTER = new Path2D('M100 22 C138 58 146 110 140 170 L60 170 C54 110 62 58 100 22 Z');
+    const SAIL_INNER = new Path2D('M100 50 C126 80 132 118 128 162 L72 162 C68 118 74 80 100 50 Z');
+    const SAIL_BASE = new Path2D('M76 150 L124 150');
 
     // 캔버스 크기 설정
     const resizeCanvas = () => {
@@ -64,7 +60,7 @@ const BoidsBackground = () => {
         y: clickY,
         vx: lvx,
         vy: lvy,
-        scale: 0.22,
+        scale: 0.4,
         leader: true,
         green: false,
         transient: true,
@@ -81,7 +77,7 @@ const BoidsBackground = () => {
           y: clickY + Math.sin(angle) * distance,
           vx: Math.cos(angle) * burstSpeed,
           vy: Math.sin(angle) * burstSpeed,
-          scale: 0.08 + Math.random() * 0.03,
+          scale: 0.1 + Math.random() * 0.05,
           leader: false,
           green: false,
           transient: true,
@@ -105,7 +101,7 @@ const BoidsBackground = () => {
         y: Math.random() * canvas.height,
         vx: avx,
         vy: avy,
-        scale: 0.1 + Math.random() * 0.05,
+        scale: 0.14 + Math.random() * 0.06,
         leader: false,
         green: i === greenIndex,
         transient: false,
@@ -236,36 +232,26 @@ const BoidsBackground = () => {
       if (boat.y > canvas.height) boat.y = 0;
     };
 
-    // 보트 그리기 — 심플 버전(솔리드 선체 + 콘솔 + 모터). 초록(리더/지정 보트)이면 에셋 원색, 아니면 회색.
-    // 뱃머리(SVG 기본 방향 →)를 진행 방향으로 회전시켜 "전진" 표현.
+    // 보트 그리기 — 라인아트 돛단배(외곽 돛 + 안쪽 돛 + 바닥선). 초록(리더/지정 보트)이면 초록선, 아니면 회색선.
+    // 뱃머리(SVG 기본 방향 ↑)를 진행 방향으로 회전시켜 "전진" 표현.
     const drawBoat = (boat: Boat) => {
       const s = boat.scale;
       const isGreen = boat.leader || boat.green;
-
-      const hull = isGreen ? HULL_GREEN : HULL_GRAY;
-      const solid = isGreen ? SOLID_GREEN : SOLID_GRAY;
       const line = isGreen ? LINE_GREEN : LINE_GRAY;
 
       ctx.save();
       ctx.translate(boat.x, boat.y);
-      ctx.rotate(boat.heading); // 기본 오른쪽(→) → 진행 방향
+      ctx.rotate(boat.heading + Math.PI / 2); // 기본 위(↑) → 진행 방향
       ctx.scale(s, s);
-      ctx.translate(-290, -150); // 선체 중심 정렬
+      ctx.translate(-100, -96); // 돛단배 중심 정렬
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
-
-      // 선체(솔리드)
-      ctx.fillStyle = rgba(hull);
-      ctx.fill(HULL);
-
-      // 콘솔
-      ctx.fillStyle = rgba(solid);
-      ctx.fill(CONSOLE);
-
-      // 모터
       ctx.strokeStyle = rgba(line);
-      ctx.lineWidth = 3 / s;
-      ctx.stroke(MOTOR);
+      ctx.lineWidth = 1.6 / s; // 스케일 보정 → 실제 ~1.6px 일정 두께
+
+      ctx.stroke(SAIL_OUTER);
+      ctx.stroke(SAIL_INNER);
+      ctx.stroke(SAIL_BASE);
 
       ctx.restore();
     };

@@ -71,20 +71,20 @@ export default function Home() {
               classduo.ai
             </h1>
             <svg
-              viewBox="0 0 580 300"
-              fill="#1E9E57"
+              viewBox="0 0 200 200"
+              fill="none"
               stroke="#1E9E57"
-              strokeWidth="2"
+              strokeWidth="4.5"
               strokeLinecap="round"
               strokeLinejoin="round"
               role="img"
               aria-label="classduo boat"
               className="block h-auto shrink-0"
-              style={{ width: 'clamp(110px, 15vw, 200px)', transform: 'rotate(-32deg)' }}
+              style={{ width: 'clamp(64px, 9vw, 128px)', transform: 'rotate(18deg)' }}
             >
-              <path d="M30 96 C55 82 120 82 250 84 C350 86 420 92 470 108 C510 122 538 140 552 150 C538 160 510 178 470 192 C420 208 350 214 250 216 C120 218 55 218 30 204 Q20 198 22 188 Q26 180 80 178 L80 122 Q26 120 22 112 Q20 102 30 96 Z" />
-              <path d="M58 138 L80 138 L80 162 L58 162 Q52 162 52 156 L52 144 Q52 138 58 138 Z" />
-              <path d="M52 150 L42 150" strokeWidth="3" />
+              <path d="M100 22 C138 58 146 110 140 170 L60 170 C54 110 62 58 100 22 Z" />
+              <path d="M100 50 C126 80 132 118 128 162 L72 162 C68 118 74 80 100 50 Z" strokeWidth="3.5" />
+              <path d="M76 150 L124 150" strokeWidth="3.5" />
             </svg>
           </div>
           <p
