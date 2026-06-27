@@ -7,7 +7,7 @@ export default function PredictiveQueryManagement() {
     <div className="min-h-screen bg-white text-[#111315]">
       {/* 상단 워드마크 + 구분선 */}
       <header className="border-b border-gray-200">
-        <div className="mx-auto max-w-4xl px-6 py-7 md:px-8">
+        <div className="mx-auto max-w-5xl px-6 py-7 md:px-8">
           <Link href="/" className="text-3xl font-black tracking-tight md:text-4xl">
             classduo.ai
           </Link>
@@ -15,9 +15,9 @@ export default function PredictiveQueryManagement() {
       </header>
 
       {/* 본문 */}
-      <article className="mx-auto max-w-4xl px-6 py-10 md:px-8">
-        {/* 제목 (30px) */}
-        <h1 className="font-bold leading-snug" style={{ fontSize: 30 }}>
+      <article className="mx-auto max-w-5xl px-6 py-10 md:px-8">
+        {/* 제목 (30px) — 한 줄 유지 위해 tracking 살짝 타이트 */}
+        <h1 className="font-bold leading-snug tracking-tight" style={{ fontSize: 30 }}>
           Predictive Query Management - Proactive Learning Support
         </h1>
 
@@ -26,8 +26,8 @@ export default function PredictiveQueryManagement() {
           June 27, 2026
         </p>
 
-        {/* 다이어그램 + 학회 배너 */}
-        <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center">
+        {/* 다이어그램 + 학회 배너 — 본문보다 좁게 제한해 컴팩트하게 */}
+        <div className="mt-8 flex max-w-3xl flex-col gap-4 md:flex-row md:items-center">
           <img
             src="/research/pqm-figure.png"
             alt="Preset Question Prediction through Agent Debate"
