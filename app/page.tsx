@@ -20,10 +20,11 @@ const navItems = [
 
 export default function Home() {
   return (
-    <main className="relative h-screen w-full overflow-hidden bg-white">
+    <main className="relative w-full bg-white">
       {/* 클릭 폭죽: 배경(z-0)에서 home_assets 에셋이 터져 채워짐 */}
       <ClickBurst />
-      <div className="relative z-20 flex h-full flex-col">
+      {/* 첫 화면: 풀 뷰포트 hero (푸터는 이 아래, 스크롤 시 노출) */}
+      <div className="relative z-20 flex min-h-screen flex-col">
         {/* 상단 내비 */}
         <header>
           <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6 py-8 text-[16px] font-medium md:gap-x-[clamp(28px,5vw,76px)]">
@@ -84,18 +85,19 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 하단: 사업자 정보 + 카피라이트 (MLP 푸터 기준) */}
-        <footer className="px-6 pb-7 text-[12px] leading-relaxed text-[#5b6168] md:px-10">
-          <div className="flex flex-col gap-0.5">
-            <p>
-              <span className="font-medium text-[#111315]">주식회사 클래스듀오</span> | 대표: 윤건재 | 사업자등록번호: 124-87-60756
-            </p>
-            <p>주소: 서울특별시 성북구 안암로 145, 경영본관동 2층 227호(안암동5가, 고려대학교안암캠퍼스)</p>
-            <p>전화: 02-6951-0048 | 이메일: admin@aplus.io.kr</p>
-            <p className="text-[#8a9099]">© 2026 classduo.ai. All rights reserved.</p>
-          </div>
-        </footer>
       </div>
+
+      {/* 스크롤 내리면 보이는 푸터 (첫 화면 아래) — 사업자 정보 + 카피라이트 (MLP 푸터 기준) */}
+      <footer className="relative z-20 border-t border-gray-100 bg-white px-6 py-10 text-[12px] leading-relaxed text-[#5b6168] md:px-10">
+        <div className="flex flex-col gap-0.5">
+          <p>
+            <span className="font-medium text-[#111315]">주식회사 클래스듀오</span> | 대표: 윤건재 | 사업자등록번호: 124-87-60756
+          </p>
+          <p>주소: 서울특별시 성북구 안암로 145, 경영본관동 2층 227호(안암동5가, 고려대학교안암캠퍼스)</p>
+          <p>전화: 02-6951-0048 | 이메일: admin@aplus.io.kr</p>
+          <p className="text-[#8a9099]">© 2026 classduo.ai. All rights reserved.</p>
+        </div>
+      </footer>
     </main>
   );
 }
