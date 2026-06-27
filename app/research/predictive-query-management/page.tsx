@@ -31,9 +31,9 @@ export default function PredictiveQueryManagement() {
           <img
             src="/research/pqm-figure.png"
             alt="Preset Question Prediction through Agent Debate"
-            className="w-full rounded-lg md:flex-[1.55]"
+            className="w-full rounded-lg md:w-[58%] md:flex-none"
           />
-          <div className="flex flex-col justify-center gap-3 md:flex-1">
+          <div className="flex w-full min-w-0 flex-col justify-center gap-3 md:flex-1">
             <img
               src="/research/cikm-2025.png"
               alt="CIKM 2025 — The 34th ACM International Conference on Information and Knowledge Management"
