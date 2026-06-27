@@ -84,13 +84,16 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 하단 좌측: 위치 + 카피라이트 */}
-        <footer className="flex items-end justify-between px-6 pb-7 text-[13px] leading-relaxed text-[#5b6168] md:px-10">
+        {/* 하단: 사업자 정보 + 카피라이트 (MLP 푸터 기준) */}
+        <footer className="px-6 pb-7 text-[12px] leading-relaxed text-[#5b6168] md:px-10">
           <div className="flex flex-col gap-0.5">
-            <span className="font-medium text-[#111315]">Seoul, Korea</span>
-            <span>© 2026 classduo.ai</span>
+            <p>
+              <span className="font-medium text-[#111315]">주식회사 클래스듀오</span> | 대표: 윤건재 | 사업자등록번호: 124-87-60756
+            </p>
+            <p>주소: 서울특별시 성북구 안암로 145, 경영본관동 2층 227호(안암동5가, 고려대학교안암캠퍼스)</p>
+            <p>전화: 02-6951-0048 | 이메일: admin@aplus.io.kr</p>
+            <p className="text-[#8a9099]">© 2026 classduo.ai. All rights reserved.</p>
           </div>
-          <div />
         </footer>
       </div>
     </main>
