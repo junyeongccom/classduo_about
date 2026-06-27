@@ -77,7 +77,7 @@ export default function Home() {
             />
           </div>
           <p
-            className="font-normal tracking-[0.057em] text-[#111315]"
+            className="font-[360] tracking-[0.057em] text-[#111315]"
             style={{ marginTop: 'clamp(40px, 6.8vh, 80px)', fontSize: 'clamp(18px, 2.4vw, 30px)' }}
           >
             Building Engaging AI Learning Platform
