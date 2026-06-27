@@ -62,8 +62,8 @@ const MIN_SCALE = 0.5;
 const MAX_SCALE = 1.3;
 const MIN_COUNT = 10;
 const MAX_COUNT = 15;
-// burst(0.6s) + hold + fade(0.6s). 페이드는 5초 시점(89%)부터 시작 — globals.css homeBurst 와 동기.
-const LIFETIME_MS = 5600;
+// burst(0.6s) + hold + fade(0.6s). 페이드는 3초 시점(83%)부터 시작 — globals.css homeBurst 와 동기.
+const LIFETIME_MS = 3600;
 const MAX_ON_SCREEN = 240; // 과다 누적 방지
 
 type Particle = {

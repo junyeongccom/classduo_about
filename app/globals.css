@@ -43,18 +43,18 @@ body {
   animation: bounce 2s ease-in-out infinite;
 }
 
-/* 클릭 폭죽(ClickBurst): 클릭 지점에서 무작위 방향으로 터져 자리 잡고 5초 시점부터 페이드아웃.
-   전체 5.6s = burst 0~11%(≈0.6s) + hold 11~89%(≈4.4s) + fade 89~100%(≈0.6s, 5초 시점부터). */
+/* 클릭 폭죽(ClickBurst): 클릭 지점에서 무작위 방향으로 터져 자리 잡고 3초 시점부터 페이드아웃.
+   전체 3.6s = burst 0~17%(≈0.6s) + hold 17~83%(≈2.4s) + fade 83~100%(≈0.6s, 3초 시점부터). */
 @keyframes homeBurst {
   0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.2);
   }
-  11% {
+  17% {
     opacity: 1;
     transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1);
   }
-  89% {
+  83% {
     opacity: 1;
     transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1);
   }
