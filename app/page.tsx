@@ -1,4 +1,4 @@
-import BoidsBackground from '../components/BoidsBackground';
+import ClickBurst from '@/components/ClickBurst';
 
 // 노션 "첫화면 프롬프트" 기준 내비 (각 항목 드롭다운)
 const navItems = [
@@ -21,11 +21,9 @@ const navItems = [
 export default function Home() {
   return (
     <main className="relative h-screen w-full overflow-hidden bg-white">
-      {/* 배경: 떠다니는 보트 (클릭 시 버스트) */}
-      <BoidsBackground />
-
-      {/* 콘텐츠 레이어 — 기본은 클릭이 캔버스로 통과(보트 버스트), 내비만 인터랙티브 */}
-      <div className="pointer-events-none relative z-20 flex h-full flex-col">
+      {/* 클릭 폭죽: 배경(z-0)에서 home_assets 에셋이 터져 채워짐 */}
+      <ClickBurst />
+      <div className="relative z-20 flex h-full flex-col">
         {/* 상단 내비 */}
         <header>
           <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6 py-8 text-[16px] font-medium md:gap-x-[clamp(28px,5vw,76px)]">
@@ -70,25 +68,16 @@ export default function Home() {
             >
               classduo.ai
             </h1>
-            <svg
-              viewBox="0 0 200 200"
-              fill="none"
-              stroke="#1E9E57"
-              strokeWidth="4.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              role="img"
-              aria-label="classduo boat"
-              className="block h-auto shrink-0"
-              style={{ width: 'clamp(64px, 9vw, 128px)', transform: 'rotate(18deg)' }}
-            >
-              <path d="M100 22 C138 58 146 110 140 170 L60 170 C54 110 62 58 100 22 Z" />
-              <path d="M100 50 C126 80 132 118 128 162 L72 162 C68 118 74 80 100 50 Z" strokeWidth="3.5" />
-              <path d="M76 150 L124 150" strokeWidth="3.5" />
-            </svg>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/duo-character.png"
+              alt="classduo characters"
+              className="block w-auto shrink-0 select-none"
+              style={{ height: 'clamp(40px, 6.5vw, 78px)' }}
+            />
           </div>
           <p
-            className="font-light tracking-[-0.01em] text-[#111315]"
+            className="font-light tracking-[0.15em] text-[#111315]"
             style={{ marginTop: 'clamp(40px, 6.8vh, 80px)', fontSize: 'clamp(18px, 2.4vw, 30px)' }}
           >
             Building Engaging AI Learning Platform
