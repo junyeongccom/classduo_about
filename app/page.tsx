@@ -47,7 +47,7 @@ export default function Home() {
                   {item.items.map((sub) => (
                     <a
                       key={sub}
-                      href="#"
+                      href={sub === 'Predictive Query Management' ? '/research/predictive-query-management' : '#'}
                       className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-[14px] font-normal text-[#5b6168] transition-colors duration-150 hover:bg-[#55BA8A]/10 hover:text-[#55BA8A]"
                     >
                       {sub}
