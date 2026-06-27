@@ -26,8 +26,8 @@ export default function PredictiveQueryManagement() {
           June 27, 2026
         </p>
 
-        {/* 다이어그램 + 학회 배너 — 본문보다 좁게 제한해 컴팩트하게 */}
-        <div className="mt-8 flex max-w-3xl flex-col gap-4 md:flex-row md:items-center">
+        {/* 다이어그램 + 학회 배너 — 본문과 동일 폭(좌우 끝 정렬) */}
+        <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center">
           <img
             src="/research/pqm-figure.png"
             alt="Preset Question Prediction through Agent Debate"
