@@ -1,13 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
+import { SiteNav } from '@/components/SiteNav';
 
 // 글씨체는 전역 Pretendard 상속. Figma 기준: 제목 30 / 날짜 20 / 본문 15.
 export default function PredictiveQueryManagement() {
   return (
     <div className="min-h-screen bg-white text-[#111315]">
-      {/* 상단 워드마크 + 구분선 */}
+      {/* 상단 메뉴바 (홈과 동일) + 워드마크 + 구분선 */}
       <header className="border-b border-gray-200">
-        <div className="mx-auto max-w-5xl px-6 py-7 md:px-8">
+        <SiteNav />
+        <div className="mx-auto max-w-5xl px-6 pb-7 md:px-8">
           <Link href="/" className="text-3xl font-black tracking-tight md:text-4xl">
             classduo.ai
           </Link>
@@ -67,8 +69,8 @@ export default function PredictiveQueryManagement() {
             유도하는 역할을 수행합니다.
           </p>
           <p>
-            2025년 1학기에, 저희는 이러한 시스템을 실제 1,500명 이상의 학생이 수강한 대규모 Python 입문 수업에서
-            한 학기 동안 적용 및 운영하였습니다. 해당 수업은 기존에 이메일을 통한 문의에만 학습 지원에 의존해야
+            2025년에, 저희는 이러한 시스템을 실제 1,500명 이상의 학생이 수강한 대규모 Python 입문 수업에
+            적용 및 운영하였습니다. 해당 수업은 기존에 이메일을 통한 문의에만 학습 지원에 의존해야
             했기 때문에, 학생들이 즉시 도움을 받기 어려운 상황이 많았습니다. 이런 상황에서 Predictive Query
             Management는 실시간 지원의 접근성을 높이고, 도움 요청의 심리적 장벽을 낮추는 실행 전략으로
             도입되었습니다.

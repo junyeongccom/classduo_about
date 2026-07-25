@@ -1,63 +1,16 @@
 import ClickBurst from '@/components/ClickBurst';
-
-// 노션 "첫화면 프롬프트" 기준 내비 (각 항목 드롭다운)
-const navItems = [
-  { label: 'Research', items: ['Predictive Query Management'] },
-  {
-    label: 'Feature',
-    items: [
-      'Microlearning',
-      'Test-based Learning',
-      'Engagement',
-      'Conversational Learning',
-      'Self-directed Learning',
-    ],
-  },
-  { label: 'Product', items: ['Aplus'] },
-  { label: 'Character', items: ['2026'] },
-  { label: 'Game', items: ['Running', 'Puzzle'] },
-];
+import { SiteNav } from '@/components/SiteNav';
 
 export default function Home() {
   return (
-    <main className="relative w-full bg-white">
+    <main className="relative w-full select-none bg-white">
       {/* 클릭 폭죽: 배경(z-0)에서 home_assets 에셋이 터져 채워짐 */}
       <ClickBurst />
       {/* 첫 화면: 풀 뷰포트 hero (푸터는 이 아래, 스크롤 시 노출) */}
       <div className="relative z-20 flex min-h-screen flex-col">
         {/* 상단 내비 */}
         <header>
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6 py-8 text-[16px] font-medium md:gap-x-[clamp(28px,5vw,76px)]">
-            {navItems.map((item) => (
-              <div key={item.label} className="group pointer-events-auto relative">
-                <span className="inline-flex cursor-pointer items-center gap-1.5 py-1.5 text-[#111315] transition-colors duration-200 group-hover:text-[#55BA8A]">
-                  {item.label}
-                  <svg
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    className="h-2.5 w-2.5 opacity-55 transition-transform duration-200 group-hover:rotate-180 group-hover:opacity-100"
-                  >
-                    <path d="M2.5 4.5 6 8l3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-
-                {/* 드롭다운 */}
-                <div className="invisible absolute left-1/2 top-full min-w-[200px] -translate-x-1/2 translate-y-1.5 rounded-xl border border-[#e7eae8] bg-white p-2 opacity-0 shadow-[0_12px_34px_rgba(17,19,21,0.08)] transition-all duration-200 group-hover:visible group-hover:translate-y-2.5 group-hover:opacity-100">
-                  {item.items.map((sub) => (
-                    <a
-                      key={sub}
-                      href={sub === 'Predictive Query Management' ? '/research/predictive-query-management' : '#'}
-                      className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-[14px] font-normal text-[#5b6168] transition-colors duration-150 hover:bg-[#55BA8A]/10 hover:text-[#55BA8A]"
-                    >
-                      {sub}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </nav>
+          <SiteNav />
         </header>
 
         {/* 히어로 (정중앙): classduo.ai + 보트 + 태그라인 */}
