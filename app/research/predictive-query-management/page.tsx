@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import { SiteNav } from '@/components/SiteNav';
+import { SiteFooter } from '@/components/SiteFooter';
+import { NextLinks } from '@/components/PageShell';
 
 // 글씨체는 전역 Pretendard 상속. Figma 기준: 제목 30 / 날짜 20 / 본문 15.
 export default function PredictiveQueryManagement() {
@@ -9,7 +11,7 @@ export default function PredictiveQueryManagement() {
       {/* 상단 메뉴바 (홈과 동일) + 워드마크 + 구분선 */}
       <header className="border-b border-gray-200">
         <SiteNav />
-        <div className="mx-auto max-w-5xl px-6 pb-7 md:px-8">
+        <div className="mx-auto hidden max-w-5xl px-6 pb-7 md:block md:px-8">
           <Link href="/" className="text-3xl font-black tracking-tight md:text-4xl">
             classduo.ai
           </Link>
@@ -89,7 +91,24 @@ export default function PredictiveQueryManagement() {
             지원 철학을 정립하고 해당 시스템을 핵심 구성 요소로 활용중입니다.
           </p>
         </div>
+
+        <NextLinks
+          items={[
+            {
+              label: 'Conversational Learning',
+              href: '/feature/conversational-learning',
+              caption: '예상 질문에서 시작해 소크라테스식 문답까지 — 대화형 학습의 현재',
+            },
+            {
+              label: 'Aplus',
+              href: '/product/aplus',
+              caption: '이 연구가 들어가 있는 제품 전체 소개',
+            },
+          ]}
+        />
       </article>
+
+      <SiteFooter />
     </div>
   );
 }
