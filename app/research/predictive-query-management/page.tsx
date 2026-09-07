@@ -97,7 +97,7 @@ export default function PredictiveQueryManagement() {
             {
               label: 'Conversational Learning',
               href: '/feature/conversational-learning',
-              caption: '예상 질문에서 시작해 소크라테스식 문답까지 — 대화형 학습의 현재',
+              caption: '예상 질문이 실제 학습 화면에서 어떻게 대화로 이어지는지',
             },
             {
               label: 'Aplus',
