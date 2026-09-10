@@ -43,7 +43,7 @@ export default function AplusPage() {
         accent={ACCENT}
         items={[
           { value: '3,000명', label: '단일 강좌 최대 도입 규모 (대형 교양강의)' },
-          { value: '2개 대학', label: '2026년 학기 중 실서비스 운영' },
+          { value: '3개', label: '2026년 학기 중 실서비스 운영 대학·교육기관' },
           { value: '9.8 / 10', label: '학기말 학습 효과 인식 설문 평균' },
           { value: '2편', label: '국제 학술대회 채택 논문 (CIKM · ACL Industry)' },
         ]}
