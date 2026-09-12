@@ -17,7 +17,7 @@ export function PlayRunningButton({ accent = '#55BA8A' }: { accent?: string }) {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold text-white transition-opacity duration-200 hover:opacity-90"
+        className="ct-small ct-strong inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-white transition-opacity duration-200 hover:opacity-90"
         style={{ backgroundColor: accent }}
       >
         지금 플레이하기

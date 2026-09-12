@@ -43,27 +43,25 @@ export default function GamePage() {
       accent={ACCENT}
     >
       {/* 플레이 가능한 게임 */}
-      <div className="mb-14 overflow-hidden rounded-2xl border border-[#e7eae8]">
-        <div className="flex flex-col gap-6 bg-[#fffaf0] px-6 py-8 md:flex-row md:items-center md:px-9 md:py-10">
+      <div className="mb-20 overflow-hidden rounded-2xl border border-[color:var(--ct-line)]">
+        <div className="flex flex-col gap-8 bg-[#fffaf0] px-7 py-10 md:flex-row md:items-center md:px-10 md:py-12">
           <div className="min-w-0 flex-1">
             <span
-              className="inline-block rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white"
+              className="inline-block rounded-full px-2.5 py-1 text-[11px] font-[550] uppercase tracking-[0.1em] text-white"
               style={{ backgroundColor: ACCENT }}
             >
               Playable
             </span>
-            <h2 className="mt-3 text-[24px] font-bold tracking-tight md:text-[28px]">
-              Running — 퀴즈 러너
-            </h2>
-            <p className="mt-3 max-w-xl text-[15px] leading-[1.85] text-[#4a5057]">
+            <h2 className="ct-h2 mt-4">Running — 퀴즈 러너</h2>
+            <p className="ct-body ct-prose mt-4 text-[color:var(--ct-ink-2)]">
               달리면서 일정 주기마다 3지선다 문항을 만납니다. 정답은 버프로, 오답은 디버프로 곧바로
               게임플레이에 반영됩니다. 실제 강의에 배포된 게임을 학습 콘텐츠 대신 샘플 문항으로 바꿔
               그대로 옮겨 왔습니다.
             </p>
-            <div className="mt-6">
+            <div className="mt-7">
               <PlayRunningButton accent={ACCENT} />
             </div>
-            <p className="mt-3 text-[12.5px] text-[#8a9099]">
+            <p className="ct-caption mt-3 text-[color:var(--ct-ink-4)]">
               모바일에서는 가로 화면으로 전환되어 실행됩니다.
             </p>
           </div>
@@ -89,17 +87,20 @@ export default function GamePage() {
       </Section>
 
       <Section title="준비 중인 게임" index={2} accent={ACCENT}>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           {UPCOMING.map((g) => (
-            <div key={g.name} className="rounded-xl border border-dashed border-[#dfe3e1] bg-[#fafbfa] p-5">
+            <div
+              key={g.name}
+              className="rounded-xl border border-dashed border-[#dfe3e1] bg-[color:var(--ct-surface)] p-6"
+            >
               <div className="flex items-center gap-2">
-                <p className="text-[16px] font-semibold text-[#111315]">{g.name}</p>
-                <span className="rounded-full bg-[#eceeed] px-2 py-0.5 text-[11px] font-medium text-[#8a9099]">
+                <p className="ct-h3 text-[color:var(--ct-ink)]">{g.name}</p>
+                <span className="rounded-full bg-[#eceeed] px-2 py-0.5 text-[12px] font-[500] text-[color:var(--ct-ink-4)]">
                   준비 중
                 </span>
               </div>
-              <p className="mt-1.5 text-[13.5px] font-medium text-[#5b6168]">{g.tagline}</p>
-              <p className="mt-2.5 text-[14px] leading-[1.8] text-[#5b6168]">{g.body}</p>
+              <p className="ct-small ct-strong mt-2 text-[color:var(--ct-ink-3)]">{g.tagline}</p>
+              <p className="ct-small mt-2.5 text-[color:var(--ct-ink-3)]">{g.body}</p>
             </div>
           ))}
         </div>

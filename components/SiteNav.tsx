@@ -17,7 +17,7 @@ const BRAND = '#55BA8A';
 
 function SoonBadge() {
   return (
-    <span className="ml-2 rounded-full bg-[#f1f3f2] px-2 py-0.5 text-[11px] font-medium text-[#8a9099]">
+    <span className="ml-2 rounded-full bg-[color:var(--ct-line-soft)] px-2 py-0.5 text-[12px] font-[500] text-[color:var(--ct-ink-4)]">
       준비 중
     </span>
   );
@@ -93,15 +93,15 @@ export function SiteNav() {
   };
 
   const desktopItemClass =
-    'flex items-center whitespace-nowrap rounded-lg px-3 py-2.5 text-[14px] font-normal text-[#5b6168] transition-colors duration-150 hover:bg-[#55BA8A]/10 hover:text-[#55BA8A]';
+    'ct-small flex items-center whitespace-nowrap rounded-lg px-3 py-2.5 text-[color:var(--ct-ink-3)] transition-colors duration-150 hover:bg-[#55BA8A]/10 hover:text-[#55BA8A]';
   const sheetItemClass =
-    'flex items-center rounded-lg px-3 py-3 text-[15px] text-[#5b6168] transition-colors duration-150 active:bg-[#55BA8A]/10 active:text-[#55BA8A]';
+    'ct-body flex items-center rounded-lg px-3 py-3 text-[color:var(--ct-ink-3)] transition-colors duration-150 active:bg-[#55BA8A]/10 active:text-[#55BA8A]';
 
   return (
     <>
       <div ref={rootRef} className="relative">
         {/* ── 데스크톱 (md+) ── */}
-        <nav className="hidden items-center justify-center gap-x-[clamp(28px,5vw,76px)] px-6 py-8 text-[16px] font-medium md:flex">
+        <nav className="ct-small ct-strong hidden items-center justify-center gap-x-[clamp(28px,5vw,76px)] px-6 py-7 md:flex">
           {NAV_GROUPS.map((group) => {
             const isOpen = openLabel === group.label;
             return (
@@ -159,7 +159,10 @@ export function SiteNav() {
           {pathname === '/' ? (
             <span aria-hidden className="h-6 w-6" />
           ) : (
-            <Link href="/" className="text-[17px] font-black tracking-tight text-[#111315]">
+            <Link
+              href="/"
+              className="text-[18px] font-[600] tracking-[-0.03em] text-[color:var(--ct-ink)]"
+            >
               classduo.ai
             </Link>
           )}
@@ -185,7 +188,7 @@ export function SiteNav() {
           <div className="absolute inset-x-0 top-full z-40 max-h-[calc(100dvh-84px)] overflow-y-auto border-y border-[#e7eae8] bg-white px-4 pb-6 pt-2 shadow-[0_18px_40px_rgba(17,19,21,0.10)] md:hidden">
             {NAV_GROUPS.map((group) => (
               <div key={group.label} className="border-b border-[#f1f3f2] py-3 last:border-b-0">
-                <p className="px-3 pb-1 text-[13px] font-semibold tracking-wide text-[#111315]">
+                <p className="ct-caption ct-strong px-3 pb-1 uppercase tracking-[0.14em] text-[color:var(--ct-ink-4)]">
                   {group.label}
                 </p>
                 {group.items.map((child) => renderChild(child, sheetItemClass))}

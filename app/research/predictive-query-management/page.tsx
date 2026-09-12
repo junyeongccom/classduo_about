@@ -7,31 +7,28 @@ import { NextLinks } from '@/components/PageShell';
 // 글씨체는 전역 Pretendard 상속. Figma 기준: 제목 30 / 날짜 20 / 본문 15.
 export default function PredictiveQueryManagement() {
   return (
-    <div className="min-h-screen bg-white text-[#111315]">
+    <div className="min-h-screen bg-white text-[color:var(--ct-ink)]">
       {/* 상단 메뉴바 (홈과 동일) + 워드마크 + 구분선 */}
-      <header className="border-b border-gray-200">
+      <header className="border-b border-[color:var(--ct-line)]">
         <SiteNav />
-        <div className="mx-auto hidden max-w-5xl px-6 pb-7 md:block md:px-8">
-          <Link href="/" className="text-3xl font-black tracking-tight md:text-4xl">
+        <div className="ct-page hidden pb-8 md:block">
+          <Link
+            href="/"
+            className="text-[28px] font-[600] tracking-[-0.03em] md:text-[32px]"
+          >
             classduo.ai
           </Link>
         </div>
       </header>
 
       {/* 본문 */}
-      <article className="mx-auto max-w-5xl px-6 py-10 md:px-8">
-        {/* 제목 (30px) — 한 줄 유지 위해 tracking 살짝 타이트 */}
-        <h1 className="font-bold leading-snug tracking-tight" style={{ fontSize: 30 }}>
-          Predictive Query Management - Proactive Learning Support
-        </h1>
+      <article className="ct-page py-16 md:py-24">
+        <h1 className="ct-h2">Predictive Query Management — Proactive Learning Support</h1>
 
-        {/* 날짜 (20px, 회색) */}
-        <p className="mt-2 text-gray-400" style={{ fontSize: 20 }}>
-          June 27, 2026
-        </p>
+        <p className="ct-small mt-3 text-[color:var(--ct-ink-4)]">June 27, 2026</p>
 
         {/* 다이어그램 + 학회 배너 — 본문과 동일 폭(좌우 끝 정렬) */}
-        <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center">
+        <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center">
           <img
             src="/research/pqm-figure.png"
             alt="Preset Question Prediction through Agent Debate"
@@ -51,8 +48,7 @@ export default function PredictiveQueryManagement() {
           </div>
         </div>
 
-        {/* 본문 텍스트 (15px) */}
-        <div className="mt-8 space-y-5 leading-relaxed text-[#333]" style={{ fontSize: 15 }}>
+        <div className="ct-body ct-prose mt-10 space-y-6 text-[color:var(--ct-ink-2)]">
           <p>
             대규모 강의 환경에서는 학생 수가 많아질수록 교수자와 조교가 개별 학생의 이해 수준과 질문 상황을
             세밀하게 파악하고 보조하기 어렵습니다. 또한 많은 학생들은 수업 내용을 어려워하면서도 무엇을 모르는지

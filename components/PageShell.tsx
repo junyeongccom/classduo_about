@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 /**
  * @file PageShell.tsx
- * @description 서브페이지 공용 껍데기 — 상단 내비 + 워드마크 + 히어로 + 푸터.
- *              research 페이지의 레이아웃 규칙(max-w-5xl, 워드마크, 구분선)을 정본화한 것.
+ * @description 서브페이지 공용 껍데기 + 본문 프리미티브.
+ *              폭·타입스케일·굵기·자간은 전부 globals.css 의 --ct-* 토큰을 따른다 —
+ *              레퍼런스 실측(sakana/stripe/elice, 2026-09-13)에서 도출한 값이라
+ *              개별 컴포넌트에서 px 를 새로 만들지 않는다.
  * @module components
  * @dependencies ./SiteNav, ./SiteFooter
  */
@@ -32,42 +34,39 @@ export function PageShell({
   subtitle,
   lead,
   icon,
-  accent = '#55BA8A',
+  accent = 'var(--ct-accent)',
   children,
 }: PageShellProps) {
   return (
-    <div className="min-h-screen bg-white text-[#111315]">
-      <header className="border-b border-gray-200">
+    <div className="min-h-screen bg-white text-[color:var(--ct-ink)]">
+      <header className="border-b border-[color:var(--ct-line)]">
         <SiteNav />
-        <div className="mx-auto hidden max-w-5xl px-6 pb-7 md:block md:px-8">
-          <Link href="/" className="text-3xl font-black tracking-tight md:text-4xl">
+        <div className="ct-page hidden pb-8 md:block">
+          <Link
+            href="/"
+            className="text-[28px] font-[600] tracking-[-0.03em] md:text-[32px]"
+          >
             classduo.ai
           </Link>
         </div>
       </header>
 
       {/* 히어로 */}
-      <section className="border-b border-gray-100 bg-[#fafbfa]">
-        <div className="mx-auto flex max-w-5xl items-center gap-6 px-6 py-12 md:px-8 md:py-16">
+      <section className="border-b border-[color:var(--ct-line-soft)] bg-[color:var(--ct-surface)]">
+        <div className="ct-page flex items-center gap-10 py-16 md:py-24">
           <div className="min-w-0 flex-1">
             <p
-              className="text-[13px] font-semibold uppercase tracking-[0.16em]"
+              className="ct-caption ct-strong uppercase tracking-[0.16em]"
               style={{ color: accent }}
             >
               {kicker}
             </p>
-            <h1 className="mt-3 text-[26px] font-bold leading-[1.32] tracking-tight md:text-[38px]">
-              {title}
-            </h1>
+            <h1 className="ct-h1 mt-4">{title}</h1>
             {subtitle && (
-              <p className="mt-2 text-[15px] font-medium text-[#8a9099] md:text-[17px]">
-                {subtitle}
-              </p>
+              <p className="ct-body mt-3 text-[color:var(--ct-ink-4)]">{subtitle}</p>
             )}
             {lead && (
-              <p className="mt-5 max-w-2xl text-[15px] leading-[1.85] text-[#4a5057] md:text-[16px]">
-                {lead}
-              </p>
+              <p className="ct-body ct-prose mt-7 text-[color:var(--ct-ink-2)]">{lead}</p>
             )}
           </div>
           {icon && (
@@ -75,13 +74,13 @@ export function PageShell({
               src={icon}
               alt=""
               aria-hidden
-              className="hidden h-[104px] w-[104px] shrink-0 object-contain md:block lg:h-[132px] lg:w-[132px]"
+              className="hidden h-[112px] w-[112px] shrink-0 object-contain md:block lg:h-[140px] lg:w-[140px]"
             />
           )}
         </div>
       </section>
 
-      <main className="mx-auto max-w-5xl px-6 py-12 md:px-8 md:py-16">{children}</main>
+      <main className="ct-page py-16 md:py-24">{children}</main>
 
       <SiteFooter />
     </div>
@@ -92,22 +91,22 @@ export function PageShell({
 
 export function StatStrip({
   items,
-  accent = '#55BA8A',
+  accent = 'var(--ct-accent)',
 }: {
   items: { value: string; label: string }[];
   accent?: string;
 }) {
   return (
-    <div className="mb-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[#e7eae8] bg-[#e7eae8] md:grid-cols-4">
+    <div className="mb-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[color:var(--ct-line)] bg-[color:var(--ct-line)] md:grid-cols-4">
       {items.map((s) => (
-        <div key={s.label} className="bg-white px-5 py-6">
+        <div key={s.label} className="bg-white px-6 py-7">
           <p
-            className="text-[24px] font-bold leading-none tracking-tight md:text-[28px]"
+            className="ct-h2 ct-num leading-none"
             style={{ color: accent }}
           >
             {s.value}
           </p>
-          <p className="mt-2.5 text-[13px] leading-[1.55] text-[#5b6168]">{s.label}</p>
+          <p className="ct-caption mt-3 text-[color:var(--ct-ink-3)]">{s.label}</p>
         </div>
       ))}
     </div>
@@ -117,7 +116,7 @@ export function StatStrip({
 export function Section({
   title,
   index,
-  accent = '#55BA8A',
+  accent = 'var(--ct-accent)',
   children,
 }: {
   title: string;
@@ -126,11 +125,11 @@ export function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mb-14 last:mb-0">
-      <h2 className="flex items-baseline gap-3 text-[19px] font-bold leading-snug tracking-tight md:text-[22px]">
+    <section className="mb-20 last:mb-0">
+      <h2 className="ct-h2 flex items-baseline gap-4">
         {index !== undefined && (
           <span
-            className="text-[13px] font-semibold tabular-nums"
+            className="ct-caption ct-strong shrink-0 tabular-nums"
             style={{ color: accent }}
           >
             {String(index).padStart(2, '0')}
@@ -138,18 +137,23 @@ export function Section({
         )}
         <span>{title}</span>
       </h2>
-      <div className="mt-4 space-y-4 text-[15px] leading-[1.9] text-[#41474e]">{children}</div>
+      <div className="ct-body ct-prose mt-6 space-y-5 text-[color:var(--ct-ink-2)]">
+        {children}
+      </div>
     </section>
   );
 }
 
 export function CardGrid({ items }: { items: { title: string; body: string }[] }) {
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
+    <div className="grid gap-4 sm:grid-cols-2">
       {items.map((c) => (
-        <div key={c.title} className="rounded-xl border border-[#e7eae8] bg-white p-5">
-          <p className="text-[15px] font-semibold text-[#111315]">{c.title}</p>
-          <p className="mt-2 text-[14px] leading-[1.8] text-[#5b6168]">{c.body}</p>
+        <div
+          key={c.title}
+          className="rounded-xl border border-[color:var(--ct-line)] bg-white p-6"
+        >
+          <p className="ct-h3 text-[color:var(--ct-ink)]">{c.title}</p>
+          <p className="ct-small mt-3 text-[color:var(--ct-ink-3)]">{c.body}</p>
         </div>
       ))}
     </div>
@@ -158,39 +162,45 @@ export function CardGrid({ items }: { items: { title: string; body: string }[] }
 
 export function Steps({
   items,
-  accent = '#55BA8A',
+  accent = 'var(--ct-accent)',
 }: {
   items: { title: string; body: string }[];
   accent?: string;
 }) {
   return (
-    <ol className="relative space-y-5 border-l border-[#e7eae8] pl-6">
+    <ol className="relative space-y-7 border-l border-[color:var(--ct-line)] pl-7">
       {items.map((s, i) => (
         <li key={s.title} className="relative">
           <span
-            className="absolute -left-[30px] top-1 flex h-[18px] w-[18px] items-center justify-center rounded-full text-[10px] font-bold text-white"
+            className="absolute -left-[35px] top-[3px] flex h-[20px] w-[20px] items-center justify-center rounded-full text-[11px] font-[550] text-white"
             style={{ backgroundColor: accent }}
           >
             {i + 1}
           </span>
-          <p className="text-[15px] font-semibold text-[#111315]">{s.title}</p>
-          <p className="mt-1 text-[14px] leading-[1.8] text-[#5b6168]">{s.body}</p>
+          <p className="ct-h3 text-[color:var(--ct-ink)]">{s.title}</p>
+          <p className="ct-small mt-2 text-[color:var(--ct-ink-3)]">{s.body}</p>
         </li>
       ))}
     </ol>
   );
 }
 
-export function Bullets({ items, accent = '#55BA8A' }: { items: string[]; accent?: string }) {
+export function Bullets({
+  items,
+  accent = 'var(--ct-accent)',
+}: {
+  items: string[];
+  accent?: string;
+}) {
   return (
-    <ul className="space-y-2.5">
+    <ul className="space-y-3">
       {items.map((t) => (
-        <li key={t} className="flex gap-3">
+        <li key={t} className="flex gap-4">
           <span
-            className="mt-[10px] h-[5px] w-[5px] shrink-0 rounded-full"
+            className="mt-[11px] h-[5px] w-[5px] shrink-0 rounded-full"
             style={{ backgroundColor: accent }}
           />
-          <span className="text-[15px] leading-[1.85] text-[#41474e]">{t}</span>
+          <span className="ct-body text-[color:var(--ct-ink-2)]">{t}</span>
         </li>
       ))}
     </ul>
@@ -199,7 +209,7 @@ export function Bullets({ items, accent = '#55BA8A' }: { items: string[]; accent
 
 export function Footnote({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mt-12 border-t border-[#f1f3f2] pt-5 text-[12.5px] leading-[1.8] text-[#8a9099]">
+    <p className="ct-caption ct-prose mt-16 border-t border-[color:var(--ct-line-soft)] pt-6 text-[color:var(--ct-ink-4)]">
       {children}
     </p>
   );
@@ -207,31 +217,31 @@ export function Footnote({ children }: { children: React.ReactNode }) {
 
 export function NextLinks({
   items,
-  accent = '#55BA8A',
+  accent = 'var(--ct-accent)',
 }: {
   items: { label: string; href: string; caption?: string }[];
   accent?: string;
 }) {
   return (
-    <nav className="mt-14 border-t border-[#e7eae8] pt-8">
-      <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-[#8a9099]">
+    <nav className="mt-20 border-t border-[color:var(--ct-line)] pt-10">
+      <p className="ct-caption ct-strong uppercase tracking-[0.14em] text-[color:var(--ct-ink-4)]">
         More
       </p>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {items.map((l) => (
           <Link
             key={l.href + l.label}
             href={l.href}
-            className="group rounded-xl border border-[#e7eae8] bg-white p-5 transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9]"
+            className="group rounded-xl border border-[color:var(--ct-line)] bg-white p-6 transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9]"
           >
             <p
-              className="text-[15px] font-semibold text-[#111315] transition-colors group-hover:text-[color:var(--accent)]"
+              className="ct-h3 text-[color:var(--ct-ink)] transition-colors group-hover:text-[color:var(--accent)]"
               style={{ ['--accent' as string]: accent }}
             >
               {l.label} <span aria-hidden>→</span>
             </p>
             {l.caption && (
-              <p className="mt-1.5 text-[13.5px] leading-[1.7] text-[#5b6168]">{l.caption}</p>
+              <p className="ct-small mt-2 text-[color:var(--ct-ink-3)]">{l.caption}</p>
             )}
           </Link>
         ))}

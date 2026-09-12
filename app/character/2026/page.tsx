@@ -44,15 +44,15 @@ export default function Character2026Page() {
       accent={ACCENT}
     >
       {/* 듀오 캐릭터 */}
-      <div className="mb-14 overflow-hidden rounded-2xl border border-[#e7eae8] bg-[#fafbfa]">
-        <div className="flex items-center justify-center px-6 py-10 md:py-14">
+      <div className="mb-20 overflow-hidden rounded-2xl border border-[color:var(--ct-line)] bg-[color:var(--ct-surface)]">
+        <div className="flex items-center justify-center px-6 py-14 md:py-20">
           <img
             src="/duo-character.png"
             alt="클래스듀오 2026 캐릭터 — 두 명의 학생 캐릭터"
-            className="h-auto w-full max-w-[560px]"
+            className="h-auto w-full max-w-[620px]"
           />
         </div>
-        <p className="border-t border-[#e7eae8] bg-white px-6 py-4 text-[13px] leading-[1.7] text-[#5b6168]">
+        <p className="ct-caption border-t border-[color:var(--ct-line)] bg-white px-6 py-5 text-[color:var(--ct-ink-3)]">
           듀오(Duo) — 함께 공부하는 두 사람. 서비스 이름이 그대로 캐릭터의 설정이 됩니다.
         </p>
       </div>
@@ -90,15 +90,15 @@ export default function Character2026Page() {
           세트를 묶어, 새 개념이 생겨도 같은 손으로 그린 것처럼 늘어납니다. 아이콘은 화면 안에서
           라벨을 대신하고, 학습 개념을 눈으로 먼저 구분하게 합니다.
         </p>
-        <div className="grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#e7eae8] bg-[#e7eae8] sm:grid-cols-4 md:grid-cols-6">
+        <div className="grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[color:var(--ct-line)] bg-[color:var(--ct-line)] sm:grid-cols-4 md:grid-cols-6">
           {STICKERS.map((s) => (
             <div
               key={s.src}
-              className="flex flex-col items-center gap-2 bg-white px-3 py-5"
+              className="flex flex-col items-center gap-3 bg-white px-3 py-7"
               title={s.label}
             >
               <img src={s.src} alt={s.label} className="h-12 w-12 object-contain" />
-              <span className="text-center text-[11.5px] leading-tight text-[#8a9099]">
+              <span className="text-center text-[12px] leading-tight text-[color:var(--ct-ink-4)]">
                 {s.label}
               </span>
             </div>

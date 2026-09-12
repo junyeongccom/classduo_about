@@ -1,18 +1,117 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/variable/pretendard-dynamic-subset.css");
 @import "tailwindcss";
 
+/* ──────────────────────────────────────────────────────────────────────
+   디자인 토큰 — 레퍼런스 3곳(sakana.ai / stripe.com / elice.io)을 1440px 기준
+   실측해 도출(2026-09-13). 수치 근거는 vault [[마케팅-랜딩페이지]].
+   - 폭: stripe 1232 · elice 1280/본문 853 → 1200 / 본문 820
+   - 타입: 6단 고정. 중간값(13.5px 류) 추가 금지
+   - weight: 700 폐지. 레퍼런스 3곳 모두 제목에 700을 쓰지 않음(200/300/500~600)
+   - 자간: 한글은 음수 필수(elice 제목 −2.4%), 행간은 elice 1.5 / stripe 1.35 사이
+   값을 고칠 일이 생기면 반드시 여기만 고친다.
+   ────────────────────────────────────────────────────────────────────── */
+:root {
+  /* 폭 */
+  --ct-page: 1200px;   /* 전체 콘텐츠 폭 */
+  --ct-prose: 820px;   /* 읽는 본문 컬럼 (줄길이 제한) */
+
+  /* 타입 스케일 (6단) */
+  --ct-fs-caption: 13px;
+  --ct-fs-small: 15px;
+  --ct-fs-body: 17px;
+  --ct-fs-h3: 21px;
+  --ct-fs-h2: 28px;
+  --ct-fs-h1: 44px;
+
+  /* 굵기 — 한글 Pretendard 기준. 본문 400은 흐려 보여 450을 기본으로 */
+  --ct-fw-body: 450;
+  --ct-fw-strong: 550;
+  --ct-fw-title: 600;
+
+  /* 자간 · 행간 */
+  --ct-ls-title: -0.02em;
+  --ct-ls-body: -0.005em;
+  --ct-lh-title: 1.3;
+  --ct-lh-body: 1.7;
+
+  /* 색 — 무채색 4단 + 액센트 1 */
+  --ct-ink: #111315;
+  --ct-ink-2: #41474e;
+  --ct-ink-3: #5b6168;
+  --ct-ink-4: #8a9099;
+  --ct-line: #e7eae8;
+  --ct-line-soft: #f1f3f2;
+  --ct-surface: #fafbfa;
+  --ct-accent: #55ba8a;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   background: #ffffff;
-  color: #111315;
+  color: var(--ct-ink);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, sans-serif;
+  font-weight: var(--ct-fw-body);
+  letter-spacing: var(--ct-ls-body);
+}
+
+/* ── 레이아웃 ── */
+.ct-page {
+  width: 100%;
+  max-width: var(--ct-page);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+@media (min-width: 768px) {
+  .ct-page { padding-inline: 40px; }
+}
+.ct-prose { max-width: var(--ct-prose); }
+
+/* ── 타이포 ── */
+.ct-h1 {
+  font-size: clamp(28px, 3.4vw, var(--ct-fs-h1));
+  font-weight: var(--ct-fw-title);
+  line-height: var(--ct-lh-title);
+  letter-spacing: var(--ct-ls-title);
+}
+.ct-h2 {
+  font-size: clamp(21px, 2.2vw, var(--ct-fs-h2));
+  font-weight: var(--ct-fw-title);
+  line-height: var(--ct-lh-title);
+  letter-spacing: var(--ct-ls-title);
+}
+.ct-h3 {
+  font-size: clamp(17px, 1.5vw, var(--ct-fs-h3));
+  font-weight: var(--ct-fw-title);
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+}
+.ct-body {
+  font-size: clamp(16px, 1.2vw, var(--ct-fs-body));
+  font-weight: var(--ct-fw-body);
+  line-height: var(--ct-lh-body);
+}
+.ct-small {
+  font-size: var(--ct-fs-small);
+  font-weight: var(--ct-fw-body);
+  line-height: 1.65;
+}
+.ct-caption {
+  font-size: var(--ct-fs-caption);
+  font-weight: var(--ct-fw-body);
+  line-height: 1.6;
+}
+.ct-strong { font-weight: var(--ct-fw-strong); }
+.ct-num {
+  font-weight: var(--ct-fw-title);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
 }
 
 @keyframes fadeInUp {

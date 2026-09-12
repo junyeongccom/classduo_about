@@ -65,28 +65,28 @@ export default function Home() {
             />
           </div>
           <p
-            className="font-[350] tracking-[0.057em] text-[#111315]"
-            style={{ marginTop: 'clamp(40px, 6.8vh, 80px)', fontSize: 'clamp(18px, 2.4vw, 30px)' }}
+            className="font-[300] tracking-[0.04em] text-[color:var(--ct-ink)]"
+            style={{ marginTop: 'clamp(40px, 6.8vh, 80px)', fontSize: 'clamp(18px, 2.2vw, 28px)' }}
           >
             Building Engaging AI Learning Platform
           </p>
         </div>
 
         {/* 스크롤 유도 */}
-        <div className="pb-8 text-center">
-          <span className="text-[12px] tracking-[0.14em] text-[#b3b9bd]">SCROLL</span>
+        <div className="pb-10 text-center">
+          <span className="text-[12px] tracking-[0.18em] text-[#b3b9bd]">SCROLL</span>
         </div>
       </div>
 
       {/* 첫 화면 아래: 무엇을 만드는 회사인지 */}
-      <section className="relative z-20 border-t border-gray-100 bg-white px-6 py-16 md:px-10 md:py-24">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="text-[22px] font-bold leading-snug tracking-tight md:text-[30px]">
+      <section className="relative z-20 border-t border-[color:var(--ct-line-soft)] bg-white py-20 md:py-28">
+        <div className="ct-page">
+          <h2 className="ct-h2">
             수업에서 이미 오간 것으로,
             <br />
             학생마다 다른 학습을 만듭니다
           </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-[1.9] text-[#4a5057] md:text-[16px]">
+          <p className="ct-body ct-prose mt-7 text-[color:var(--ct-ink-2)]">
             클래스듀오는 대학 강의를 위한 AI 학습 플랫폼을 만듭니다. 교수자가 이미 가지고 있는
             강의자료와 강의 녹음에서 출발해 요약·퀴즈·대화·게임을 만들고, 학생이 남긴 학습 기록을
             다시 개인화된 훈련으로 되돌립니다. 새 교재를 만들 필요도, 강의 방식을 바꿀 필요도
@@ -94,39 +94,39 @@ export default function Home() {
           </p>
 
           {/* Feature 5종 */}
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f) => (
               <Link
                 key={f.slug}
                 href={`/feature/${f.slug}`}
-                className="group rounded-xl border border-[#e7eae8] bg-white p-5 transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9]"
+                className="group rounded-xl border border-[color:var(--ct-line)] bg-white p-6 transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9]"
               >
-                <img src={f.icon} alt="" aria-hidden className="h-9 w-9 object-contain" />
-                <p className="mt-4 text-[15px] font-semibold text-[#111315]">
+                <img src={f.icon} alt="" aria-hidden className="h-10 w-10 object-contain" />
+                <p className="ct-h3 mt-5 text-[color:var(--ct-ink)]">
                   {f.nav} <span aria-hidden>→</span>
                 </p>
-                <p className="mt-2 text-[13.5px] leading-[1.75] text-[#5b6168]">{f.summary}</p>
+                <p className="ct-small mt-2.5 text-[color:var(--ct-ink-3)]">{f.summary}</p>
               </Link>
             ))}
           </div>
 
           {/* 제품 · 연구 · 게임 · 캐릭터 */}
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {ENTRIES.map((e) => (
               <Link
                 key={e.href}
                 href={e.href}
-                className="group flex gap-4 rounded-xl border border-[#e7eae8] bg-white p-5 transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9]"
+                className="group flex gap-5 rounded-xl border border-[color:var(--ct-line)] bg-white p-6 transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9]"
               >
-                <img src={e.icon} alt="" aria-hidden className="h-9 w-9 shrink-0 object-contain" />
+                <img src={e.icon} alt="" aria-hidden className="h-10 w-10 shrink-0 object-contain" />
                 <div className="min-w-0">
-                  <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-[#55BA8A]">
+                  <p className="ct-caption ct-strong uppercase tracking-[0.14em] text-[color:var(--ct-accent)]">
                     {e.kicker}
                   </p>
-                  <p className="mt-1 text-[15px] font-semibold text-[#111315]">
+                  <p className="ct-h3 mt-1.5 text-[color:var(--ct-ink)]">
                     {e.title} <span aria-hidden>→</span>
                   </p>
-                  <p className="mt-2 text-[13.5px] leading-[1.75] text-[#5b6168]">{e.body}</p>
+                  <p className="ct-small mt-2.5 text-[color:var(--ct-ink-3)]">{e.body}</p>
                 </div>
               </Link>
             ))}
