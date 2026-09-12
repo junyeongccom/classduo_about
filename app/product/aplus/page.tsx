@@ -36,7 +36,6 @@ export default function AplusPage() {
       title="강의 하나를, 학습 시스템 하나로"
       subtitle="Aplus"
       lead="Aplus는 대학 강의를 위한 AI 학습 플랫폼입니다. 교수자가 이미 가지고 있는 강의자료와 강의 녹음을 받아 요약·퀴즈·대화·게임 콘텐츠를 만들고, 학생이 남긴 학습 기록을 다시 개인화된 훈련으로 되돌립니다. 새 교재를 만들 필요도, 강의 방식을 바꿀 필요도 없습니다."
-      icon="/duo-character.png"
       accent={ACCENT}
     >
       <StatStrip

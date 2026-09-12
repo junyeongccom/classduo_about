@@ -6,16 +6,11 @@
 
 export type NavChild = {
   label: string;
-  href?: string;
-  /** 링크가 아니라 동작(달리기게임 오버레이 실행 등)인 항목 */
-  action?: 'running-game';
-  /** 준비 중 배지 노출 */
-  soon?: boolean;
+  href: string;
 };
 
 export type NavGroup = {
   label: string;
-  href?: string;
   items: NavChild[];
 };
 
@@ -39,18 +34,5 @@ export const NAV_GROUPS: NavGroup[] = [
   {
     label: 'Product',
     items: [{ label: 'Aplus', href: '/product/aplus' }],
-  },
-  {
-    label: 'Character',
-    items: [{ label: '2026', href: '/character/2026' }],
-  },
-  {
-    label: 'Game',
-    href: '/game',
-    items: [
-      { label: 'Running', action: 'running-game' },
-      { label: 'Shooting', href: '/game', soon: true },
-      { label: 'Puzzle', href: '/game', soon: true },
-    ],
   },
 ];

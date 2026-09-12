@@ -1,140 +1,145 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import ClickBurst from '@/components/ClickBurst';
 import { SiteNav } from '@/components/SiteNav';
 import { SiteFooter } from '@/components/SiteFooter';
 import { FEATURES } from '@/lib/features';
 
-const ENTRIES = [
-  {
-    href: '/product/aplus',
-    kicker: 'Product',
-    title: 'Aplus',
-    body: '강의자료와 녹음을 학습 콘텐츠로 바꾸고, 학생의 학습 기록을 개인화된 훈련으로 되돌리는 대학 강의용 AI 학습 플랫폼.',
-    icon: '/home_assets/unique/01__01-short-test-v1__01.png',
-  },
-  {
-    href: '/research/predictive-query-management',
-    kicker: 'Research',
-    title: 'Predictive Query Management',
-    body: '학생이 묻기 전에 먼저 묻습니다. 대규모 강의에서 학습 지원의 진입 장벽을 낮춘 선제적 질의 관리 — CIKM 2025 · ACL Industry 2026.',
-    icon: '/home_assets/unique/32__10-social-v10__01.png',
-  },
-  {
-    href: '/game',
-    kicker: 'Game',
-    title: '정답을 알아야 이기는 게임',
-    body: '실제 강의에 배포된 학습 게임을 브라우저에서 바로 플레이해 볼 수 있습니다.',
-    icon: '/home_assets/unique/19__08-currency-v4__01.png',
-  },
-  {
-    href: '/character/2026',
-    kicker: 'Character',
-    title: 'Character 2026',
-    body: '학습 화면 안에서 학생 옆에 서 있는 두 캐릭터와, 학습 개념마다 하나씩 대응되는 스티커 아트 시스템.',
-    icon: '/home_assets/unique/28__09-character-v3__01.png',
-  },
+/** 히어로 바로 아래 신뢰 증거 — /product/aplus 의 StatStrip 과 같은 값을 쓴다(페이지 간 수치 불일치 방지). */
+const PROOF = [
+  { value: '3,000명', label: '단일 강좌 최대 도입 규모' },
+  { value: '3개', label: '2026년 학기 중 실서비스 운영 대학·교육기관' },
+  { value: '9.8 / 10', label: '학기말 학습 효과 인식 설문 평균' },
+  { value: '2편', label: '국제 학술대회 채택 논문' },
 ];
 
 export default function Home() {
   return (
-    <main className="relative w-full bg-white">
-      {/* 클릭 폭죽: 배경(z-0)에서 home_assets 에셋이 터져 채워짐 */}
-      <ClickBurst />
-      {/* 첫 화면: 풀 뷰포트 hero (아래 섹션·푸터는 스크롤 시 노출) */}
-      <div className="relative z-20 flex min-h-screen select-none flex-col">
-        {/* 상단 내비 */}
-        <header>
-          <SiteNav />
-        </header>
+    <main className="min-h-screen bg-white">
+      <header className="border-b border-[color:var(--ct-line)]">
+        <SiteNav />
+      </header>
 
-        {/* 히어로 (정중앙): classduo.ai + 캐릭터 + 태그라인 */}
-        <div className="-mt-5 flex flex-1 flex-col items-center justify-center px-6 text-center">
-          <div className="flex flex-col items-center justify-center gap-[18px] md:flex-row md:gap-[clamp(14px,2.6vw,34px)]">
-            <h1
-              className="font-semibold leading-none tracking-[-0.03em] text-[#111315]"
-              style={{ fontSize: 'clamp(38.4px, 7.2vw, 105.6px)' }}
+      {/* ── 히어로 ── */}
+      <section className="ct-page pb-20 pt-24 md:pb-28 md:pt-36">
+        <p className="ct-caption ct-strong uppercase tracking-[0.16em] text-[color:var(--ct-accent)]">
+          AI Learning Platform for Universities
+        </p>
+        <h1 className="ct-h1 ct-prose mt-6">
+          수업에서 이미 오간 것으로,
+          <br />
+          학생마다 다른 학습을 만듭니다
+        </h1>
+        <p className="ct-body ct-prose mt-8 text-[color:var(--ct-ink-2)]">
+          클래스듀오는 대학 강의를 위한 AI 학습 플랫폼을 만듭니다. 교수자가 이미 가지고 있는
+          강의자료와 강의 녹음에서 요약·퀴즈·대화를 만들고, 학생이 남긴 학습 기록을 다시 개인화된
+          훈련으로 되돌립니다. 새 교재를 만들 필요도, 강의 방식을 바꿀 필요도 없습니다.
+        </p>
+
+        <div className="mt-11 flex flex-wrap items-center gap-3">
+          <Link
+            href="/product/aplus"
+            className="ct-small ct-strong rounded-full bg-[color:var(--ct-ink)] px-7 py-3.5 text-white transition-opacity hover:opacity-88"
+          >
+            제품 알아보기 <span aria-hidden>→</span>
+          </Link>
+          <a
+            href="mailto:admin@aplus.io.kr?subject=%5B%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98%5D%20classduo.ai"
+            className="ct-small ct-strong rounded-full border border-[color:var(--ct-line)] px-7 py-3.5 text-[color:var(--ct-ink)] transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9] hover:text-[color:var(--ct-accent)]"
+          >
+            도입 문의
+          </a>
+        </div>
+      </section>
+
+      {/* ── 신뢰 증거 ── */}
+      <section className="border-y border-[color:var(--ct-line)] bg-[color:var(--ct-surface)]">
+        <div className="ct-page grid grid-cols-2 gap-x-8 gap-y-10 py-14 md:grid-cols-4 md:py-16">
+          {PROOF.map((s) => (
+            <div key={s.label}>
+              <p className="ct-h2 ct-num leading-none text-[color:var(--ct-accent)]">{s.value}</p>
+              <p className="ct-caption mt-3 text-[color:var(--ct-ink-3)]">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 연구 ── */}
+      <section className="ct-page py-20 md:py-28">
+        <div className="flex flex-col gap-12 md:flex-row md:items-center md:gap-16">
+          <div className="min-w-0 flex-1">
+            <p className="ct-caption ct-strong uppercase tracking-[0.16em] text-[color:var(--ct-ink-4)]">
+              Research
+            </p>
+            <h2 className="ct-h2 mt-4">학생이 묻기 전에, 먼저 묻습니다</h2>
+            <p className="ct-body mt-6 text-[color:var(--ct-ink-2)]">
+              대규모 강의에서 학습 지원이 닿지 않는 이유는 응답이 느려서가 아니라, 많은 학생이
+              무엇을 모르는지 언어로 만들지 못하기 때문입니다. 수업 맥락에 맞춘 예상 질문을 먼저
+              제시하는 선제적 질의 관리 방식으로 그 진입 장벽을 낮췄고, 1,500명 이상이 수강한
+              대규모 강의에 적용한 결과를 두 편의 논문으로 정리했습니다.
+            </p>
+            <Link
+              href="/research/predictive-query-management"
+              className="ct-small ct-strong mt-7 inline-block text-[color:var(--ct-accent)] hover:underline"
             >
-              classduo.ai
-            </h1>
+              Predictive Query Management 읽기 <span aria-hidden>→</span>
+            </Link>
+          </div>
+          <div className="flex w-full shrink-0 flex-col gap-3 md:w-[340px]">
             <img
-              src="/duo-character.png"
-              alt="classduo characters"
-              className="block w-auto shrink-0 select-none"
-              style={{ height: 'clamp(40px, 6.5vw, 78px)' }}
+              src="/research/cikm-2025.png"
+              alt="CIKM 2025 — The 34th ACM International Conference on Information and Knowledge Management"
+              className="w-full rounded-lg border border-[color:var(--ct-line)]"
+            />
+            <img
+              src="/research/acl-2026.png"
+              alt="ACL 2026 Industry Track, San Diego"
+              className="w-full rounded-lg border border-[color:var(--ct-line)]"
             />
           </div>
-          <p
-            className="font-[300] tracking-[0.04em] text-[color:var(--ct-ink)]"
-            style={{ marginTop: 'clamp(40px, 6.8vh, 80px)', fontSize: 'clamp(18px, 2.2vw, 28px)' }}
-          >
-            Building Engaging AI Learning Platform
-          </p>
         </div>
+      </section>
 
-        {/* 스크롤 유도 */}
-        <div className="pb-10 text-center">
-          <span className="text-[12px] tracking-[0.18em] text-[#b3b9bd]">SCROLL</span>
-        </div>
-      </div>
-
-      {/* 첫 화면 아래: 무엇을 만드는 회사인지 */}
-      <section className="relative z-20 border-t border-[color:var(--ct-line-soft)] bg-white py-20 md:py-28">
+      {/* ── 기능 ── */}
+      <section className="border-t border-[color:var(--ct-line-soft)] bg-[color:var(--ct-surface)] py-20 md:py-28">
         <div className="ct-page">
-          <h2 className="ct-h2">
-            수업에서 이미 오간 것으로,
-            <br />
-            학생마다 다른 학습을 만듭니다
-          </h2>
-          <p className="ct-body ct-prose mt-7 text-[color:var(--ct-ink-2)]">
-            클래스듀오는 대학 강의를 위한 AI 학습 플랫폼을 만듭니다. 교수자가 이미 가지고 있는
-            강의자료와 강의 녹음에서 출발해 요약·퀴즈·대화·게임을 만들고, 학생이 남긴 학습 기록을
-            다시 개인화된 훈련으로 되돌립니다. 새 교재를 만들 필요도, 강의 방식을 바꿀 필요도
-            없습니다.
+          <p className="ct-caption ct-strong uppercase tracking-[0.16em] text-[color:var(--ct-ink-4)]">
+            Feature
+          </p>
+          <h2 className="ct-h2 mt-4">학습의 다섯 축</h2>
+          <p className="ct-body ct-prose mt-6 text-[color:var(--ct-ink-2)]">
+            진단하고, 훈련하고, 되묻고, 스스로 점검하게 합니다. 각 축이 어떤 설계 위에서 도는지
+            따로 정리했습니다.
           </p>
 
-          {/* Feature 5종 */}
-          <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f) => (
               <Link
                 key={f.slug}
                 href={`/feature/${f.slug}`}
                 className="group rounded-xl border border-[color:var(--ct-line)] bg-white p-6 transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9]"
               >
-                <img src={f.icon} alt="" aria-hidden className="h-10 w-10 object-contain" />
-                <p className="ct-h3 mt-5 text-[color:var(--ct-ink)]">
+                <p className="ct-h3 text-[color:var(--ct-ink)]">
                   {f.nav} <span aria-hidden>→</span>
                 </p>
-                <p className="ct-small mt-2.5 text-[color:var(--ct-ink-3)]">{f.summary}</p>
+                <p className="ct-small mt-3 text-[color:var(--ct-ink-3)]">{f.summary}</p>
               </Link>
             ))}
-          </div>
-
-          {/* 제품 · 연구 · 게임 · 캐릭터 */}
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            {ENTRIES.map((e) => (
-              <Link
-                key={e.href}
-                href={e.href}
-                className="group flex gap-5 rounded-xl border border-[color:var(--ct-line)] bg-white p-6 transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9]"
-              >
-                <img src={e.icon} alt="" aria-hidden className="h-10 w-10 shrink-0 object-contain" />
-                <div className="min-w-0">
-                  <p className="ct-caption ct-strong uppercase tracking-[0.14em] text-[color:var(--ct-accent)]">
-                    {e.kicker}
-                  </p>
-                  <p className="ct-h3 mt-1.5 text-[color:var(--ct-ink)]">
-                    {e.title} <span aria-hidden>→</span>
-                  </p>
-                  <p className="ct-small mt-2.5 text-[color:var(--ct-ink-3)]">{e.body}</p>
-                </div>
-              </Link>
-            ))}
+            <Link
+              href="/product/aplus"
+              className="group flex flex-col justify-between rounded-xl border border-[color:var(--ct-ink)] bg-[color:var(--ct-ink)] p-6 text-white transition-opacity hover:opacity-90"
+            >
+              <p className="ct-h3">
+                Aplus <span aria-hidden>→</span>
+              </p>
+              <p className="ct-small mt-3 text-white/70">
+                다섯 축이 하나의 제품으로 어떻게 묶이는지 — 도입 구조와 운영 원칙까지.
+              </p>
+            </Link>
           </div>
         </div>
       </section>
 
-      <SiteFooter className="relative z-20" />
+      <SiteFooter />
     </main>
   );
 }

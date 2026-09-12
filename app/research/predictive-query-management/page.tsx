@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
 import { SiteNav } from '@/components/SiteNav';
 import { SiteFooter } from '@/components/SiteFooter';
 import { NextLinks } from '@/components/PageShell';
@@ -11,14 +10,6 @@ export default function PredictiveQueryManagement() {
       {/* 상단 메뉴바 (홈과 동일) + 워드마크 + 구분선 */}
       <header className="border-b border-[color:var(--ct-line)]">
         <SiteNav />
-        <div className="ct-page hidden pb-8 md:block">
-          <Link
-            href="/"
-            className="text-[28px] font-[600] tracking-[-0.03em] md:text-[32px]"
-          >
-            classduo.ai
-          </Link>
-        </div>
       </header>
 
       {/* 본문 */}

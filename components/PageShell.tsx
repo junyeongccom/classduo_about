@@ -41,14 +41,6 @@ export function PageShell({
     <div className="min-h-screen bg-white text-[color:var(--ct-ink)]">
       <header className="border-b border-[color:var(--ct-line)]">
         <SiteNav />
-        <div className="ct-page hidden pb-8 md:block">
-          <Link
-            href="/"
-            className="text-[28px] font-[600] tracking-[-0.03em] md:text-[32px]"
-          >
-            classduo.ai
-          </Link>
-        </div>
       </header>
 
       {/* 히어로 */}
