@@ -47,8 +47,8 @@
 
 html {
   scroll-behavior: smooth;
-  /* .ct-bleed 의 100vw 는 스크롤바 폭만큼 콘텐츠보다 넓다.
-     hidden 은 스크롤 컨테이너를 만들어 가로 스크롤이 남지만, clip 은 그냥 잘라낸다. */
+  /* 넘치는 요소가 가로 스크롤을 만들지 않게. hidden 은 스크롤 컨테이너를
+     만들어 스크롤이 남지만, clip 은 그냥 잘라낸다. */
   overflow-x: clip;
 }
 
@@ -115,37 +115,4 @@ body {
   font-weight: var(--ct-fw-title);
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
-}
-
-/* ── 풀블리드 (컨테이너 밖으로 빠져나가는 섹션) ── */
-.ct-bleed {
-  /* 100vw 는 세로 스크롤바 폭까지 포함해 콘텐츠보다 넓다. --ct-sb(layout.tsx 에서 주입)
-     만큼 빼야 풀블리드 안의 내용이 본문 컬럼과 정확히 정렬된다. */
-  margin-inline: calc(50% - 50vw + var(--ct-sb, 0px) / 2);
-  width: calc(100vw - var(--ct-sb, 0px));
-}
-
-/* ── 제품 캡쳐 캐러셀: 클릭/스와이프로 넘기는 가로 레일 ──
-   레일은 풀블리드(.ct-bleed)지만 첫 카드의 왼쪽 끝은 본문 컬럼과 맞춘다. */
-.ct-rail {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding-inline: max(24px, calc((100vw - var(--ct-sb, 0px) - var(--ct-page)) / 2 + 24px));
-  scroll-padding-inline-start: max(24px, calc((100vw - var(--ct-sb, 0px) - var(--ct-page)) / 2 + 24px));
-}
-@media (min-width: 768px) {
-  .ct-rail {
-    padding-inline: max(40px, calc((100vw - var(--ct-sb, 0px) - var(--ct-page)) / 2 + 40px));
-    scroll-padding-inline-start: max(40px, calc((100vw - var(--ct-sb, 0px) - var(--ct-page)) / 2 + 40px));
-  }
-}
-.ct-rail::-webkit-scrollbar { display: none; }
-.ct-rail > * { scroll-snap-align: start; }
-@media (prefers-reduced-motion: reduce) {
-  .ct-rail { scroll-behavior: auto; }
 }
