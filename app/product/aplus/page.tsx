@@ -14,9 +14,23 @@ import {
   StatStrip,
   Steps,
 } from '@/components/PageShell';
+import { ShotMarquee, type Shot } from '@/components/ShotMarquee';
 import { FEATURES } from '@/lib/features';
 
 const ACCENT = '#55BA8A';
+
+/**
+ * 실제 운영 화면 캡쳐. 기관 엠블럼·계정 이메일·과목명이 있던 상단 크롬은 잘라냈고,
+ * 고객사 강의자료 원문이 보이던 화면(AI튜터 우측 출처 패널)은 좌측 대화 영역만 남겼다.
+ */
+const SHOTS: Shot[] = [
+  { src: '/product/dashboard.webp', label: '과목 대시보드 — 오늘 할 학습을 한 화면에' },
+  { src: '/product/summary.webp', label: '회차 요약 — 수업에서 다룬 핵심과 자료 보충을 분리' },
+  { src: '/product/quiz.webp', label: '회차 퀴즈 — 인지 유형별 문항' },
+  { src: '/product/mastery.webp', label: '쪽지시험 — 주제별 마스터리 누적' },
+  { src: '/product/tutor.webp', label: '대화형 학습 — 답변마다 근거 출처 표시' },
+  { src: '/product/analytics.webp', label: '학습 분석 — 사용 로그 기반 지표' },
+];
 
 export const metadata: Metadata = {
   title: 'Aplus — classduo.ai',
@@ -47,6 +61,21 @@ export default function AplusPage() {
           { value: '2편', label: '국제 학술대회 채택 논문 (CIKM · ACL Industry)' },
         ]}
       />
+
+      {/* 실제 운영 화면 */}
+      <section className="mb-20">
+        <p className="ct-caption ct-strong uppercase tracking-[0.16em] text-[color:var(--ct-ink-4)]">
+          Product Screens
+        </p>
+        <h2 className="ct-h2 mt-4">실제로 학생이 보는 화면</h2>
+        <p className="ct-body ct-prose mt-6 text-[color:var(--ct-ink-2)]">
+          아래는 운영 중인 강의에서 그대로 가져온 화면입니다. 기관 로고와 계정 정보, 과목명은
+          가렸습니다.
+        </p>
+        <div className="mt-10">
+          <ShotMarquee items={SHOTS} />
+        </div>
+      </section>
 
       <Section title="교수님이 하실 일은, 자료를 전달하는 한 가지" index={1} accent={ACCENT}>
         <p>

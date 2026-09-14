@@ -47,6 +47,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* .ct-bleed 의 100vw 는 스크롤바 폭만큼 콘텐츠보다 넓다.
+     hidden 은 스크롤 컨테이너를 만들어 가로 스크롤이 남지만, clip 은 그냥 잘라낸다. */
+  overflow-x: clip;
 }
 
 body {
@@ -54,7 +57,7 @@ body {
   color: var(--ct-ink);
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, sans-serif;
   font-weight: var(--ct-fw-body);
@@ -112,4 +115,35 @@ body {
   font-weight: var(--ct-fw-title);
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
+}
+
+/* ── 풀블리드 (컨테이너 밖으로 빠져나가는 섹션) ── */
+.ct-bleed {
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+}
+
+/* ── 제품 캡쳐 마퀴: 트랙을 2벌 복제하고 -50% 이동해 무한 루프 ── */
+.ct-marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.ct-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  animation: ct-marquee 72s linear infinite;
+}
+.ct-marquee:hover .ct-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes ct-marquee {
+  to { transform: translateX(-50%); }
+}
+/* 모션 최소화 설정에서는 자동 이동 대신 손으로 넘기게 한다 */
+@media (prefers-reduced-motion: reduce) {
+  .ct-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .ct-marquee-track { animation: none; }
 }
