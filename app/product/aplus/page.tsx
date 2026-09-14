@@ -14,7 +14,7 @@ import {
   StatStrip,
   Steps,
 } from '@/components/PageShell';
-import { ShotMarquee, type Shot } from '@/components/ShotMarquee';
+import { ShotCarousel, type Shot } from '@/components/ShotCarousel';
 import { FEATURES } from '@/lib/features';
 
 const ACCENT = '#55BA8A';
@@ -24,12 +24,12 @@ const ACCENT = '#55BA8A';
  * 고객사 강의자료 원문이 보이던 화면(AI튜터 우측 출처 패널)은 좌측 대화 영역만 남겼다.
  */
 const SHOTS: Shot[] = [
-  { src: '/product/dashboard.webp', label: '과목 대시보드 — 오늘 할 학습을 한 화면에' },
-  { src: '/product/summary.webp', label: '회차 요약 — 수업에서 다룬 핵심과 자료 보충을 분리' },
-  { src: '/product/quiz.webp', label: '회차 퀴즈 — 인지 유형별 문항' },
-  { src: '/product/mastery.webp', label: '쪽지시험 — 주제별 마스터리 누적' },
-  { src: '/product/tutor.webp', label: '대화형 학습 — 답변마다 근거 출처 표시' },
-  { src: '/product/analytics.webp', label: '학습 분석 — 사용 로그 기반 지표' },
+  { w: 1600, h: 735, src: '/product/dashboard.webp', label: '과목 대시보드 — 오늘 할 학습을 한 화면에' },
+  { w: 1600, h: 736, src: '/product/summary.webp', label: '회차 요약 — 수업에서 다룬 핵심과 자료 보충을 분리' },
+  { w: 1600, h: 742, src: '/product/quiz.webp', label: '회차 퀴즈 — 인지 유형별 문항' },
+  { w: 1600, h: 742, src: '/product/mastery.webp', label: '쪽지시험 — 주제별 마스터리 누적' },
+  { w: 1545, h: 1392, src: '/product/tutor.webp', label: '대화형 학습 — 답변마다 근거 출처 표시' },
+  { w: 750, h: 458, src: '/product/analytics.webp', label: '학습 분석 — 사용 로그 기반 지표' },
 ];
 
 export const metadata: Metadata = {
@@ -70,10 +70,10 @@ export default function AplusPage() {
         <h2 className="ct-h2 mt-4">실제로 학생이 보는 화면</h2>
         <p className="ct-body ct-prose mt-6 text-[color:var(--ct-ink-2)]">
           아래는 운영 중인 강의에서 그대로 가져온 화면입니다. 기관 로고와 계정 정보, 과목명은
-          가렸습니다.
+          가렸습니다. 좌우로 넘겨서 보실 수 있습니다.
         </p>
         <div className="mt-10">
-          <ShotMarquee items={SHOTS} />
+          <ShotCarousel items={SHOTS} />
         </div>
       </section>
 
