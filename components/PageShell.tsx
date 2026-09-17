@@ -7,6 +7,8 @@
  * @module components
  * @dependencies ./SiteNav, ./SiteFooter
  */
+import { ScrollMotion } from "./ScrollMotion";
+import { Wireframe } from "./Wireframe";
 import Link from "next/link";
 import { SiteNav } from "./SiteNav";
 import { SiteFooter } from "./SiteFooter";
@@ -38,7 +40,8 @@ export function PageShell({
 }: PageShellProps) {
   return (
     <div className={styles.page}>
-      <header className={home.header}>
+      <ScrollMotion />
+      <header className={`${home.header} ${styles.header}`}>
         <SiteNav />
       </header>
       <section className={styles.hero}>
@@ -46,24 +49,17 @@ export function PageShell({
           <Link href="/">CLASSDUO / {kicker.toUpperCase()}</Link>
           <span>LEARNING, REIMAGINED</span>
         </div>
-        <div className={styles.heroGrid}>
+        <div data-reveal className={styles.heroGrid}>
           <div>
             {subtitle && <p className={styles.label}>{subtitle}</p>}
             <h1>{title}</h1>
             {lead && <p className={styles.lead}>{lead}</p>}
           </div>
-          <div className={styles.art} aria-hidden="true">
+          <div className={styles.art}>
             <span className={styles.artLabel}>
               {kicker.toUpperCase()} / A NEW PERSPECTIVE
             </span>
-            <div
-              className={`${home.symbol} ${home[({ Microlearning: "stack", "Test-based Learning": "target", Engagement: "spark", "Conversational Learning": "orbit", "Self-directed Learning": "path" } as Record<string, string>)[subtitle || ""] || "orbit"]} ${styles.symbol}`}
-            >
-              <i />
-              <i />
-              <i />
-              <i />
-            </div>
+            <Wireframe />
             <span className={styles.artFooter}>
               각자의 가능성을 여는 배움 <span>↗</span>
             </span>
@@ -71,7 +67,7 @@ export function PageShell({
         </div>
       </section>
       <main className={styles.content}>{children}</main>
-      <SiteFooter className={home.footer} />
+      <SiteFooter className={`${home.footer} ${styles.footer}`} />
     </div>
   );
 }
@@ -86,7 +82,7 @@ export function StatStrip({
   accent?: string;
 }) {
   return (
-    <div className={styles.values}>
+    <div data-reveal className={styles.values}>
       {items.map((s) => (
         <div key={s.label} className="bg-white px-6 py-7">
           <p className="ct-h2 ct-num leading-none" style={{ color: accent }}>
@@ -113,7 +109,7 @@ export function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className={styles.section}>
+    <section data-reveal className={styles.section}>
       <h2 className="ct-h2 flex items-baseline gap-4">
         {index !== undefined && (
           <span
@@ -215,7 +211,7 @@ export function NextLinks({
   accent?: string;
 }) {
   return (
-    <nav className={styles.more}>
+    <nav data-reveal className={styles.more}>
       <p className="ct-caption ct-strong uppercase tracking-[0.14em] text-[color:var(--ct-ink-4)]">
         More
       </p>

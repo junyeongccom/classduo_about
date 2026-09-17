@@ -9,29 +9,32 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://classduo.ai.kr"),
-  title: "classduo.ai — Engaging AI Learning Platform",
-  description: "Engaging AI Learning Platform",
+  title: "Learning, Reimagined",
+  description:
+    "같은 수업에서 시작해도, 배움의 길은 다릅니다. 우리는 AI로 각자의 이해가 깊어지는 학습을 만듭니다.",
   openGraph: {
-    title: "classduo.ai — Engaging AI Learning Platform",
+    title: "Learning, Reimagined",
     siteName: "classduo.ai",
-    description: "Engaging AI Learning Platform",
+    description:
+      "같은 수업에서 시작해도, 배움의 길은 다릅니다. 우리는 AI로 각자의 이해가 깊어지는 학습을 만듭니다.",
     url: "https://classduo.ai.kr",
     type: "website",
-    locale: "en_US",
+    locale: "ko_KR",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "CLASSDUO",
+        url: "/classduo-preview-20260917.png",
+        width: 230,
+        height: 158,
+        alt: "classduo.ai",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "classduo.ai",
-    description: "Engaging AI Learning Platform",
-    images: ["/og-image.png"],
+    title: "Learning, Reimagined",
+    description:
+      "같은 수업에서 시작해도, 배움의 길은 다릅니다. 우리는 AI로 각자의 이해가 깊어지는 학습을 만듭니다.",
+    images: ["/classduo-preview-20260917.png"],
   },
 };
 
@@ -42,9 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="antialiased">
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

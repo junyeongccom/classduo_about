@@ -1,0 +1,87 @@
+.scene {
+  position: relative;
+  color: #202020;
+}
+.stage {
+  height: 245px;
+  display: grid;
+  place-items: center;
+  perspective: 650px;
+  overflow: hidden;
+}
+.cube {
+  width: 112px;
+  height: 112px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: turn 22s linear infinite;
+}
+.cube i {
+  position: absolute;
+  inset: 0;
+  border: 1px solid currentColor;
+  background: #ffffff12;
+}
+.cube i:nth-child(1) {
+  transform: translateZ(56px);
+}
+.cube i:nth-child(2) {
+  transform: rotateY(180deg) translateZ(56px);
+}
+.cube i:nth-child(3) {
+  transform: rotateY(90deg) translateZ(56px);
+}
+.cube i:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(56px);
+}
+.cube i:nth-child(5) {
+  transform: rotateX(90deg) translateZ(56px);
+}
+.cube i:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(56px);
+}
+.center {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: currentColor;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.paused {
+  animation-play-state: paused;
+}
+.control {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  border: 1px solid #20202060;
+  background: #fff;
+  padding: 5px 8px;
+  font-size: 10px;
+  cursor: pointer;
+}
+.control:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+.control span {
+  margin-left: 6px;
+}
+@keyframes turn {
+  from {
+    transform: rotateX(-20deg) rotateY(25deg) rotateZ(-5deg);
+  }
+  to {
+    transform: rotateX(340deg) rotateY(385deg) rotateZ(-5deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cube {
+    animation: none;
+    transform: rotateX(-20deg) rotateY(25deg) rotateZ(-5deg);
+  }
+  .control {
+    display: none;
+  }
+}
