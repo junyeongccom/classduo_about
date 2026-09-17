@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 /**
  * @file PageShell.tsx
  * @description 서브페이지 공용 껍데기 + 본문 프리미티브.
@@ -8,9 +7,11 @@
  * @module components
  * @dependencies ./SiteNav, ./SiteFooter
  */
-import Link from 'next/link';
-import { SiteNav } from './SiteNav';
-import { SiteFooter } from './SiteFooter';
+import Link from "next/link";
+import { SiteNav } from "./SiteNav";
+import { SiteFooter } from "./SiteFooter";
+import styles from "./PageShell.module.css";
+import home from "@/app/landing.module.css";
 
 type PageShellProps = {
   /** 상단 작은 라벨 (Feature / Product / Character …) */
@@ -33,48 +34,44 @@ export function PageShell({
   title,
   subtitle,
   lead,
-  icon,
-  accent = 'var(--ct-accent)',
   children,
 }: PageShellProps) {
   return (
-    <div className="min-h-screen bg-white text-[color:var(--ct-ink)]">
-      <header className="border-b border-[color:var(--ct-line)]">
+    <div className={styles.page}>
+      <header className={home.header}>
         <SiteNav />
       </header>
-
-      {/* 히어로 */}
-      <section className="border-b border-[color:var(--ct-line-soft)] bg-[color:var(--ct-surface)]">
-        <div className="ct-page flex items-center gap-10 py-16 md:py-24">
-          <div className="min-w-0 flex-1">
-            <p
-              className="ct-caption ct-strong uppercase tracking-[0.16em]"
-              style={{ color: accent }}
-            >
-              {kicker}
-            </p>
-            <h1 className="ct-h1 mt-4">{title}</h1>
-            {subtitle && (
-              <p className="ct-body mt-3 text-[color:var(--ct-ink-4)]">{subtitle}</p>
-            )}
-            {lead && (
-              <p className="ct-body ct-prose mt-7 text-[color:var(--ct-ink-2)]">{lead}</p>
-            )}
+      <section className={styles.hero}>
+        <div className={styles.eyebrow}>
+          <Link href="/">CLASSDUO / {kicker.toUpperCase()}</Link>
+          <span>LEARNING, REIMAGINED</span>
+        </div>
+        <div className={styles.heroGrid}>
+          <div>
+            {subtitle && <p className={styles.label}>{subtitle}</p>}
+            <h1>{title}</h1>
+            {lead && <p className={styles.lead}>{lead}</p>}
           </div>
-          {icon && (
-            <img
-              src={icon}
-              alt=""
-              aria-hidden
-              className="hidden h-[112px] w-[112px] shrink-0 object-contain md:block lg:h-[140px] lg:w-[140px]"
-            />
-          )}
+          <div className={styles.art} aria-hidden="true">
+            <span className={styles.artLabel}>
+              {kicker.toUpperCase()} / A NEW PERSPECTIVE
+            </span>
+            <div
+              className={`${home.symbol} ${home[({ Microlearning: "stack", "Test-based Learning": "target", Engagement: "spark", "Conversational Learning": "orbit", "Self-directed Learning": "path" } as Record<string, string>)[subtitle || ""] || "orbit"]} ${styles.symbol}`}
+            >
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+            <span className={styles.artFooter}>
+              각자의 가능성을 여는 배움 <span>↗</span>
+            </span>
+          </div>
         </div>
       </section>
-
-      <main className="ct-page py-16 md:py-24">{children}</main>
-
-      <SiteFooter />
+      <main className={styles.content}>{children}</main>
+      <SiteFooter className={home.footer} />
     </div>
   );
 }
@@ -83,22 +80,21 @@ export function PageShell({
 
 export function StatStrip({
   items,
-  accent = 'var(--ct-accent)',
+  accent = "var(--ct-accent)",
 }: {
   items: { value: string; label: string }[];
   accent?: string;
 }) {
   return (
-    <div className="mb-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[color:var(--ct-line)] bg-[color:var(--ct-line)] md:grid-cols-4">
+    <div className={styles.values}>
       {items.map((s) => (
         <div key={s.label} className="bg-white px-6 py-7">
-          <p
-            className="ct-h2 ct-num leading-none"
-            style={{ color: accent }}
-          >
+          <p className="ct-h2 ct-num leading-none" style={{ color: accent }}>
             {s.value}
           </p>
-          <p className="ct-caption mt-3 text-[color:var(--ct-ink-3)]">{s.label}</p>
+          <p className="ct-caption mt-3 text-[color:var(--ct-ink-3)]">
+            {s.label}
+          </p>
         </div>
       ))}
     </div>
@@ -108,7 +104,7 @@ export function StatStrip({
 export function Section({
   title,
   index,
-  accent = 'var(--ct-accent)',
+  accent = "var(--ct-accent)",
   children,
 }: {
   title: string;
@@ -117,14 +113,14 @@ export function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mb-20 last:mb-0">
+    <section className={styles.section}>
       <h2 className="ct-h2 flex items-baseline gap-4">
         {index !== undefined && (
           <span
             className="ct-caption ct-strong shrink-0 tabular-nums"
             style={{ color: accent }}
           >
-            {String(index).padStart(2, '0')}
+            {String(index).padStart(2, "0")}
           </span>
         )}
         <span>{title}</span>
@@ -136,9 +132,13 @@ export function Section({
   );
 }
 
-export function CardGrid({ items }: { items: { title: string; body: string }[] }) {
+export function CardGrid({
+  items,
+}: {
+  items: { title: string; body: string }[];
+}) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2">
+    <div className={styles.cards}>
       {items.map((c) => (
         <div
           key={c.title}
@@ -154,7 +154,7 @@ export function CardGrid({ items }: { items: { title: string; body: string }[] }
 
 export function Steps({
   items,
-  accent = 'var(--ct-accent)',
+  accent = "var(--ct-accent)",
 }: {
   items: { title: string; body: string }[];
   accent?: string;
@@ -179,7 +179,7 @@ export function Steps({
 
 export function Bullets({
   items,
-  accent = 'var(--ct-accent)',
+  accent = "var(--ct-accent)",
 }: {
   items: string[];
   accent?: string;
@@ -209,13 +209,13 @@ export function Footnote({ children }: { children: React.ReactNode }) {
 
 export function NextLinks({
   items,
-  accent = 'var(--ct-accent)',
+  accent = "var(--ct-accent)",
 }: {
   items: { label: string; href: string; caption?: string }[];
   accent?: string;
 }) {
   return (
-    <nav className="mt-20 border-t border-[color:var(--ct-line)] pt-10">
+    <nav className={styles.more}>
       <p className="ct-caption ct-strong uppercase tracking-[0.14em] text-[color:var(--ct-ink-4)]">
         More
       </p>
@@ -228,12 +228,14 @@ export function NextLinks({
           >
             <p
               className="ct-h3 text-[color:var(--ct-ink)] transition-colors group-hover:text-[color:var(--accent)]"
-              style={{ ['--accent' as string]: accent }}
+              style={{ ["--accent" as string]: accent }}
             >
               {l.label} <span aria-hidden>→</span>
             </p>
             {l.caption && (
-              <p className="ct-small mt-2 text-[color:var(--ct-ink-3)]">{l.caption}</p>
+              <p className="ct-small mt-2 text-[color:var(--ct-ink-3)]">
+                {l.caption}
+              </p>
             )}
           </Link>
         ))}
