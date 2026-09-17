@@ -1,145 +1,234 @@
-/* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
-import { SiteNav } from '@/components/SiteNav';
-import { SiteFooter } from '@/components/SiteFooter';
-import { FEATURES } from '@/lib/features';
+/**
+ * @file page.tsx
+ * @description 가치 중심 메시지와 기하학 모션으로 구성한 클래스듀오 랜딩페이지
+ * @module app
+ * @dependencies SiteNav, SiteFooter, LearningField
+ */
+import Link from "next/link";
+import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
+import { LearningField } from "@/components/LearningField";
+import styles from "./landing.module.css";
 
-/** 히어로 바로 아래 신뢰 증거 — /product/aplus 의 StatStrip 과 같은 값을 쓴다(페이지 간 수치 불일치 방지). */
-const PROOF = [
-  { value: '3,000명', label: '단일 강좌 최대 도입 규모' },
-  { value: '3개', label: '2026년 학기 중 실서비스 운영 대학·교육기관' },
-  { value: '9.8 / 10', label: '학기말 학습 효과 인식 설문 평균' },
-  { value: '2편', label: '국제 학술대회 채택 논문' },
+const PILLARS = [
+  {
+    slug: "microlearning",
+    label: "Microlearning",
+    title: "작은 배움의 축적",
+    text: "작게 시작한 이해가 더 깊은 배움으로 이어지도록.",
+    symbol: "stack",
+  },
+  {
+    slug: "test-based-learning",
+    label: "Test-based Learning",
+    title: "이해를 발견하는 순간",
+    text: "스스로 확인하며 다음 배움의 방향을 찾도록.",
+    symbol: "target",
+  },
+  {
+    slug: "engagement",
+    label: "Engagement",
+    title: "계속하고 싶은 마음",
+    text: "작은 성취가 배움을 이어가는 힘이 되도록.",
+    symbol: "spark",
+  },
+  {
+    slug: "conversational-learning",
+    label: "Conversational Learning",
+    title: "질문에서 열리는 가능성",
+    text: "하나의 질문이 새로운 이해의 시작이 되도록.",
+    symbol: "orbit",
+  },
+  {
+    slug: "self-directed-learning",
+    label: "Self-directed Learning",
+    title: "스스로 만드는 방향",
+    text: "각자의 속도와 선택으로 배움을 이끌어가도록.",
+    symbol: "path",
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
-      <header className="border-b border-[color:var(--ct-line)]">
+    <main className={styles.landing}>
+      <header className={styles.header}>
         <SiteNav />
       </header>
+      <section className={styles.hero} aria-labelledby="home-title">
+        <div className={styles.eyebrow}>
+          <span>CLASSDUO — LEARNING, REIMAGINED</span>
+          <span>배움의 새로운 가능성</span>
+        </div>
+        <LearningField />
+        <div className={styles.heroCopy}>
+          <p className={styles.label}>A NEW SHAPE OF LEARNING</p>
+          <h1 id="home-title">
+            하나의 수업,
+            <br />
+            저마다의 <span>가능성.</span>
+          </h1>
+          <div className={styles.heroBottom}>
+            <p>
+              같은 수업에서 시작해도, 배움의 길은 다릅니다.
+              <br />
+              우리는 AI로 각자의 이해가 깊어지는 학습을 만듭니다.
+            </p>
+            <div className={styles.actions}>
+              <Link className={styles.primary} href="/product/aplus">
+                제품 알아보기 <span aria-hidden>↗</span>
+              </Link>
+              <a
+                className={styles.secondary}
+                href="mailto:admin@aplus.io.kr?subject=%5B%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98%5D%20classduo.ai"
+              >
+                도입 문의 <span aria-hidden>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className={styles.sectionEnd}>
+          <span>함께 배우고, 다르게 성장하다.</span>
+          <span aria-hidden>SCROLL TO EXPLORE ↓</span>
+        </div>
+      </section>
 
-      {/* ── 히어로 ── */}
-      <section className="ct-page pb-20 pt-24 md:pb-28 md:pt-36">
-        <p className="ct-caption ct-strong uppercase tracking-[0.16em] text-[color:var(--ct-accent)]">
-          AI Learning Platform for Universities
-        </p>
-        <h1 className="ct-h1 ct-prose mt-6">
-          수업에서 이미 오간 것으로,
-          <br />
-          학생마다 다른 학습을 만듭니다
-        </h1>
-        <p className="ct-body ct-prose mt-8 text-[color:var(--ct-ink-2)]">
-          클래스듀오는 대학 강의를 위한 AI 학습 플랫폼을 만듭니다. 교수자가 이미 가지고 있는
-          강의자료와 강의 녹음에서 요약·퀴즈·대화를 만들고, 학생이 남긴 학습 기록을 다시 개인화된
-          훈련으로 되돌립니다. 새 교재를 만들 필요도, 강의 방식을 바꿀 필요도 없습니다.
-        </p>
+      <section className={styles.evidence} aria-label="연구와 교육 현장의 기반">
+        <p className={styles.label}>GROUNDED IN THE REAL WORLD</p>
+        <div className={styles.evidenceGrid}>
+          <div>
+            <span className={styles.evidenceMark}>01 / RESEARCH</span>
+            <h2>연구에서 시작해</h2>
+            <p>학습을 이해하는 질문과 탐구</p>
+          </div>
+          <div>
+            <span className={styles.evidenceMark}>02 / PRACTICE</span>
+            <h2>교육 현장에서 배우고</h2>
+            <p>실제 수업과 학습자의 경험</p>
+          </div>
+          <div>
+            <span className={styles.evidenceMark}>03 / PROGRESS</span>
+            <h2>다음 배움으로 잇습니다</h2>
+            <p>연구와 현장이 함께 만드는 변화</p>
+          </div>
+        </div>
+      </section>
 
-        <div className="mt-11 flex flex-wrap items-center gap-3">
+      <section className={styles.research} aria-labelledby="research-title">
+        <div className={styles.sectionHeading}>
+          <span className={styles.label}>01 / RESEARCH</span>
+          <span aria-hidden>↗</span>
+        </div>
+        <div className={styles.researchGrid}>
+          <div className={styles.researchArt} aria-hidden="true">
+            <div className={styles.artCaption}>CURIOSITY → UNDERSTANDING</div>
+            <svg viewBox="0 0 460 400" fill="none">
+              <path
+                d="M0 200H460M230 0V400"
+                stroke="currentColor"
+                opacity=".25"
+              />
+              {[65, 100, 135, 170].map((r) => (
+                <circle key={r} cx="230" cy="200" r={r} stroke="currentColor" />
+              ))}
+              <path d="M60 330 230 200 385 60" stroke="currentColor" />
+              <circle cx="230" cy="200" r="14" fill="currentColor" />
+              <circle
+                cx="385"
+                cy="60"
+                r="7"
+                fill="#e9a3b3"
+                stroke="currentColor"
+              />
+            </svg>
+            <span className={styles.artFoot}>
+              질문 하나가 넓히는 세계. <span>FIG. 02</span>
+            </span>
+          </div>
+          <div className={styles.researchCopy}>
+            <h2 id="research-title">
+              더 좋은 배움은
+              <br />더 좋은 질문에서.
+            </h2>
+            <p>
+              아직 말이 되지 못한 궁금함에도 배움의 가능성이 있습니다. 우리는
+              질문과 이해 사이의 거리를 좁히는 방법을 연구합니다.
+            </p>
+            <Link
+              className={styles.textLink}
+              href="/research/predictive-query-management"
+            >
+              우리의 연구 알아보기 <span aria-hidden>↗</span>
+            </Link>
+            <div className={styles.publications}>
+              <span>RESEARCH PRESENTED AT</span>
+              <p>
+                CIKM 2025 <i> / </i> ACL 2026
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.features} aria-labelledby="features-title">
+        <div className={styles.sectionHeading}>
+          <span className={styles.label}>02 / FEATURE</span>
+          <span className={styles.label}>MANY WAYS TO GROW</span>
+        </div>
+        <div className={styles.featureIntro}>
+          <h2 id="features-title">
+            배움의 방식은,
+            <br />
+            하나가 아니니까.
+          </h2>
+          <p>
+            서로 다른 다섯 가지 접근.
+            <br />
+            각자의 가능성을 여는 하나의 경험.
+          </p>
+        </div>
+        <div className={styles.cards}>
+          {PILLARS.map((p, index) => (
+            <Link
+              key={p.slug}
+              href={`/feature/${p.slug}`}
+              className={styles.card}
+            >
+              <div className={styles.cardTop}>
+                <span>0{index + 1}</span>
+                <span aria-hidden>↗</span>
+              </div>
+              <div
+                className={`${styles.symbol} ${styles[p.symbol]}`}
+                aria-hidden="true"
+              >
+                <i />
+                <i />
+                <i />
+                <i />
+              </div>
+              <span className={styles.cardLabel}>{p.label}</span>
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+            </Link>
+          ))}
           <Link
             href="/product/aplus"
-            className="ct-small ct-strong rounded-full bg-[color:var(--ct-ink)] px-7 py-3.5 text-white transition-opacity hover:opacity-88"
+            className={`${styles.card} ${styles.productCard}`}
           >
-            제품 알아보기 <span aria-hidden>→</span>
-          </Link>
-          <a
-            href="mailto:admin@aplus.io.kr?subject=%5B%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98%5D%20classduo.ai"
-            className="ct-small ct-strong rounded-full border border-[color:var(--ct-line)] px-7 py-3.5 text-[color:var(--ct-ink)] transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9] hover:text-[color:var(--ct-accent)]"
-          >
-            도입 문의
-          </a>
-        </div>
-      </section>
-
-      {/* ── 신뢰 증거 ── */}
-      <section className="border-y border-[color:var(--ct-line)] bg-[color:var(--ct-surface)]">
-        <div className="ct-page grid grid-cols-2 gap-x-8 gap-y-10 py-14 md:grid-cols-4 md:py-16">
-          {PROOF.map((s) => (
-            <div key={s.label}>
-              <p className="ct-h2 ct-num leading-none text-[color:var(--ct-accent)]">{s.value}</p>
-              <p className="ct-caption mt-3 text-[color:var(--ct-ink-3)]">{s.label}</p>
+            <div className={styles.cardTop}>
+              <span>THE EXPERIENCE</span>
+              <span aria-hidden>↗</span>
             </div>
-          ))}
+            <div className={styles.productWord}>
+              A<span>+</span>
+            </div>
+            <span className={styles.cardLabel}>Aplus by classduo</span>
+            <h3>가능성이 일상이 되는 곳.</h3>
+            <p>우리의 생각을 하나의 학습 경험으로.</p>
+          </Link>
         </div>
       </section>
-
-      {/* ── 연구 ── */}
-      <section className="ct-page py-20 md:py-28">
-        <div className="flex flex-col gap-12 md:flex-row md:items-center md:gap-16">
-          <div className="min-w-0 flex-1">
-            <p className="ct-caption ct-strong uppercase tracking-[0.16em] text-[color:var(--ct-ink-4)]">
-              Research
-            </p>
-            <h2 className="ct-h2 mt-4">학생이 묻기 전에, 먼저 묻습니다</h2>
-            <p className="ct-body mt-6 text-[color:var(--ct-ink-2)]">
-              대규모 강의에서 학습 지원이 닿지 않는 이유는 응답이 느려서가 아니라, 많은 학생이
-              무엇을 모르는지 언어로 만들지 못하기 때문입니다. 수업 맥락에 맞춘 예상 질문을 먼저
-              제시하는 선제적 질의 관리 방식으로 그 진입 장벽을 낮췄고, 1,500명 이상이 수강한
-              대규모 강의에 적용한 결과를 두 편의 논문으로 정리했습니다.
-            </p>
-            <Link
-              href="/research/predictive-query-management"
-              className="ct-small ct-strong mt-7 inline-block text-[color:var(--ct-accent)] hover:underline"
-            >
-              Predictive Query Management 읽기 <span aria-hidden>→</span>
-            </Link>
-          </div>
-          <div className="flex w-full shrink-0 flex-col gap-3 md:w-[340px]">
-            <img
-              src="/research/cikm-2025.png"
-              alt="CIKM 2025 — The 34th ACM International Conference on Information and Knowledge Management"
-              className="w-full rounded-lg border border-[color:var(--ct-line)]"
-            />
-            <img
-              src="/research/acl-2026.png"
-              alt="ACL 2026 Industry Track, San Diego"
-              className="w-full rounded-lg border border-[color:var(--ct-line)]"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── 기능 ── */}
-      <section className="border-t border-[color:var(--ct-line-soft)] bg-[color:var(--ct-surface)] py-20 md:py-28">
-        <div className="ct-page">
-          <p className="ct-caption ct-strong uppercase tracking-[0.16em] text-[color:var(--ct-ink-4)]">
-            Feature
-          </p>
-          <h2 className="ct-h2 mt-4">학습의 다섯 축</h2>
-          <p className="ct-body ct-prose mt-6 text-[color:var(--ct-ink-2)]">
-            진단하고, 훈련하고, 되묻고, 스스로 점검하게 합니다. 각 축이 어떤 설계 위에서 도는지
-            따로 정리했습니다.
-          </p>
-
-          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {FEATURES.map((f) => (
-              <Link
-                key={f.slug}
-                href={`/feature/${f.slug}`}
-                className="group rounded-xl border border-[color:var(--ct-line)] bg-white p-6 transition-colors hover:border-[#cfe6db] hover:bg-[#f7fbf9]"
-              >
-                <p className="ct-h3 text-[color:var(--ct-ink)]">
-                  {f.nav} <span aria-hidden>→</span>
-                </p>
-                <p className="ct-small mt-3 text-[color:var(--ct-ink-3)]">{f.summary}</p>
-              </Link>
-            ))}
-            <Link
-              href="/product/aplus"
-              className="group flex flex-col justify-between rounded-xl border border-[color:var(--ct-ink)] bg-[color:var(--ct-ink)] p-6 text-white transition-opacity hover:opacity-90"
-            >
-              <p className="ct-h3">
-                Aplus <span aria-hidden>→</span>
-              </p>
-              <p className="ct-small mt-3 text-white/70">
-                다섯 축이 하나의 제품으로 어떻게 묶이는지 — 도입 구조와 운영 원칙까지.
-              </p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <SiteFooter />
+      <SiteFooter className={styles.footer} />
     </main>
   );
 }
