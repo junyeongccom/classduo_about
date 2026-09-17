@@ -1,0 +1,282 @@
+/* Subpage presentation shares the home palette and geometric visual language. */
+.page {
+  --ink: #223c37;
+  --ct-ink: #223c37;
+  --ct-ink-2: #42584f;
+  --ct-ink-3: #50605a;
+  --ct-ink-4: #50605a;
+  --ct-accent: #223c37;
+  --ct-line: #223c3740;
+  --ct-line-soft: #223c372a;
+  background: #f1f0e6;
+  color: var(--ink);
+}
+.hero {
+  background: #65b6aa;
+  padding: 28px max(28px, calc((100% - 1240px) / 2)) 70px;
+}
+.eyebrow {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font: 11px/1.5 monospace;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--ct-line);
+  padding-bottom: 20px;
+}
+.eyebrow a:hover {
+  text-decoration: underline;
+}
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(230px, 1fr);
+  gap: 8%;
+  align-items: center;
+  padding-top: 64px;
+}
+.label {
+  font: 12px/1.6 monospace;
+  letter-spacing: 0.06em;
+}
+.hero h1 {
+  max-width: 750px;
+  margin: 22px 0 28px;
+  font-size: clamp(38px, 4.3vw, 66px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.22;
+  word-break: keep-all;
+}
+.lead {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.art {
+  background: #dce1c9;
+  border: 1px solid var(--ink);
+  background-image:
+    linear-gradient(#223c3712 1px, transparent 1px),
+    linear-gradient(90deg, #223c3712 1px, transparent 1px);
+  background-size: 24px 24px;
+  overflow: hidden;
+}
+.artLabel {
+  display: block;
+  padding: 16px;
+  font: 9px/1.5 monospace;
+  letter-spacing: 0.05em;
+}
+.art .symbol {
+  margin: 65px auto;
+  transform: scale(1.5);
+  animation: arrive 1.2s ease-out backwards;
+}
+.art:hover .symbol {
+  transform: scale(1.5) rotate(12deg);
+}
+.artFooter {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  font-size: 11px;
+  border-top: 1px solid var(--ct-line);
+  background: #dce1c9;
+}
+.content {
+  max-width: 1296px;
+  padding: 65px 28px 85px;
+  margin: auto;
+}
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 80px;
+  border-block: 1px solid var(--ct-line);
+}
+.values > div {
+  background: transparent;
+  padding: 30px 24px;
+  border-right: 1px solid var(--ct-line);
+}
+.values > div:last-child {
+  border-right: 0;
+}
+.values > div > p:first-child {
+  font-size: 27px;
+  font-weight: 450;
+  letter-spacing: -0.04em;
+}
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+  gap: 50px;
+  border-top: 1px solid var(--ct-line);
+  padding-top: 30px;
+  margin-bottom: 65px;
+}
+.section h2 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.45;
+  word-break: keep-all;
+  letter-spacing: -0.035em;
+}
+.section h2 > span:first-child {
+  font: 11px/2 monospace;
+  padding-top: 6px;
+}
+.section > div {
+  margin-top: 0;
+  font-size: 17px;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+.cards {
+  display: grid;
+  gap: 0;
+}
+.cards > div {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid var(--ct-line);
+  padding: 24px 0;
+  background: transparent;
+}
+.cards > div:first-child {
+  padding-top: 0;
+}
+.cards > div:last-child {
+  border-bottom: 0;
+}
+.cards p:first-child {
+  font-size: 21px;
+  font-weight: 500;
+}
+.more {
+  border-top: 1px solid var(--ct-line);
+  padding-top: 30px;
+  margin-top: 80px;
+}
+.more > div {
+  gap: 0;
+  border-left: 1px solid var(--ct-line);
+  border-top: 1px solid var(--ct-line);
+}
+.more a {
+  border: 0;
+  border-radius: 0;
+  border-right: 1px solid var(--ct-line);
+  border-bottom: 1px solid var(--ct-line);
+  background: transparent;
+  padding: 26px;
+}
+.more a:hover {
+  background: #e3e7db;
+}
+.more a p:first-child {
+  font-size: 19px;
+  font-weight: 500;
+}
+.page a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: scale(1.35) rotate(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+@media (max-width: 800px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 38px;
+  }
+  .art {
+    max-width: 100%;
+  }
+  .art .symbol {
+    margin: 35px auto;
+    transform: scale(1.1);
+    animation: none;
+  }
+  .art:hover .symbol {
+    transform: scale(1.1) rotate(12deg);
+  }
+  .section {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .hero {
+    padding: 24px 24px 40px;
+  }
+  .content {
+    padding: 40px 24px 60px;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  .lead {
+    font-size: 16px;
+  }
+  .values {
+    margin-bottom: 50px;
+  }
+  .values > div {
+    padding: 24px 12px;
+  }
+  .values > div > p:first-child {
+    font-size: 23px;
+  }
+  .section h2 {
+    font-size: 27px;
+  }
+  .section {
+    margin-bottom: 45px;
+  }
+  .eyebrow > span {
+    display: none;
+  }
+}
+@media (max-width: 430px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+  .values {
+    grid-template-columns: 1fr;
+  }
+  .values > div {
+    border-right: 0;
+    border-bottom: 1px solid var(--ct-line);
+    padding: 20px 0;
+  }
+  .values > div:last-child {
+    border-bottom: 0;
+  }
+  .section > div {
+    font-size: 16px;
+  }
+  .more a {
+    padding: 20px;
+  }
+  .hero,
+  .content {
+    padding-inline: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .art:hover .symbol {
+    transform: scale(1.5);
+  }
+}
