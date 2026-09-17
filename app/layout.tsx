@@ -1,14 +1,20 @@
+/**
+ * @file layout.tsx
+ * @description 공통 레이아웃 및 검색·소셜 미리보기 메타데이터
+ * @module app
+ * @dependencies next, globals.css
+ */
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://classduo.ai.kr"),
-  title: "classduo.ai — Building Engaging AI Learning Platform",
-  description: "Building Engaging AI Learning Platform",
+  title: "classduo.ai — Engaging AI Learning Platform",
+  description: "Engaging AI Learning Platform",
   openGraph: {
-    title: "classduo.ai — Building Engaging AI Learning Platform",
+    title: "classduo.ai — Engaging AI Learning Platform",
     siteName: "classduo.ai",
-    description: "Building Engaging AI Learning Platform",
+    description: "Engaging AI Learning Platform",
     url: "https://classduo.ai.kr",
     type: "website",
     locale: "en_US",
@@ -24,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "classduo.ai",
-    description: "Building Engaging AI Learning Platform",
+    description: "Engaging AI Learning Platform",
     images: ["/og-image.png"],
   },
 };
