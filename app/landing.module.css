@@ -622,3 +622,77 @@
     transform: none;
   }
 }
+
+/* Content stays visible without JavaScript; motion starts only after observation. */
+.landing [data-pending="true"] {
+  transition:
+    opacity 0.65s ease,
+    translate 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.landing [data-pending="true"]:not([data-visible="true"]) {
+  opacity: 0;
+  translate: 0 20px;
+}
+.landing [data-reveal]:focus-within {
+  opacity: 1 !important;
+  translate: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing [data-pending="true"] {
+    opacity: 1 !important;
+    translate: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .researchGrid[data-visible="true"] .researchArt circle[stroke] {
+    stroke-dasharray: 1100;
+    animation: trace 2.4s ease-out both;
+  }
+  .card:is(:hover, :focus-visible) .stack i:nth-child(even) {
+    translate: 0 -8px;
+  }
+  .card:is(:hover, :focus-visible) .target i:nth-child(3) {
+    scale: 1.18;
+  }
+  .card:is(:hover, :focus-visible) .spark {
+    transform: rotate(90deg);
+  }
+  .card:is(:hover, :focus-visible) .orbit {
+    transform: rotate(-30deg);
+  }
+  .card:is(:hover, :focus-visible) .path i {
+    translate: 0 -6px;
+  }
+  .symbol i {
+    transition:
+      translate 0.5s ease,
+      scale 0.5s ease;
+  }
+  .path i:nth-child(2) {
+    transition-delay: 0.06s;
+  }
+  .path i:nth-child(3) {
+    transition-delay: 0.12s;
+  }
+  .path i:nth-child(4) {
+    transition-delay: 0.18s;
+  }
+  .primary span,
+  .secondary span {
+    transition: transform 0.2s;
+  }
+  .primary:is(:hover, :focus-visible) span,
+  .secondary:is(:hover, :focus-visible) span {
+    transform: translate(3px, -3px);
+  }
+}
+@keyframes trace {
+  from {
+    stroke-dashoffset: 1100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

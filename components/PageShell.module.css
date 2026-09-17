@@ -1,18 +1,18 @@
 /* Subpage presentation shares the home palette and geometric visual language. */
 .page {
-  --ink: #223c37;
-  --ct-ink: #223c37;
-  --ct-ink-2: #42584f;
-  --ct-ink-3: #50605a;
-  --ct-ink-4: #50605a;
-  --ct-accent: #223c37;
-  --ct-line: #223c3740;
-  --ct-line-soft: #223c372a;
-  background: #f1f0e6;
+  --ink: #202020;
+  --ct-ink: #202020;
+  --ct-ink-2: #444444;
+  --ct-ink-3: #606060;
+  --ct-ink-4: #606060;
+  --ct-accent: #202020;
+  --ct-line: #20202040;
+  --ct-line-soft: #2020202a;
+  background: #ffffff;
   color: var(--ink);
 }
 .hero {
-  background: #65b6aa;
+  background: #ffffff;
   padding: 28px max(28px, calc((100% - 1240px) / 2)) 70px;
 }
 .eyebrow {
@@ -54,21 +54,25 @@
   word-break: keep-all;
 }
 .art {
-  background: #dce1c9;
+  background: #f3f3f3;
   border: 1px solid var(--ink);
   background-image:
-    linear-gradient(#223c3712 1px, transparent 1px),
-    linear-gradient(90deg, #223c3712 1px, transparent 1px);
+    linear-gradient(#20202012 1px, transparent 1px),
+    linear-gradient(90deg, #20202012 1px, transparent 1px);
   background-size: 24px 24px;
+  box-shadow: 4px 4px 0 #dedede;
   overflow: hidden;
 }
 .artLabel {
   display: block;
-  padding: 16px;
+  color: #ffffff;
+  background: #202020;
+  padding: 10px 16px;
   font: 9px/1.5 monospace;
   letter-spacing: 0.05em;
 }
 .art .symbol {
+  filter: grayscale(1);
   margin: 65px auto;
   transform: scale(1.5);
   animation: arrive 1.2s ease-out backwards;
@@ -82,7 +86,7 @@
   padding: 16px;
   font-size: 11px;
   border-top: 1px solid var(--ct-line);
-  background: #dce1c9;
+  background: #f3f3f3;
 }
 .content {
   max-width: 1296px;
@@ -173,7 +177,7 @@
   padding: 26px;
 }
 .more a:hover {
-  background: #e3e7db;
+  background: #eeeeee;
 }
 .more a p:first-child {
   font-size: 19px;
@@ -278,5 +282,54 @@
   }
   .art:hover .symbol {
     transform: scale(1.5);
+  }
+}
+
+/* Keep the home color theme isolated from the monochrome detail pages. */
+.page .header {
+  background: #fff;
+  --ct-ink: #202020;
+  border-bottom: 1px solid #202020;
+}
+.header button:hover,
+.header button[aria-expanded="true"],
+.header a:hover {
+  color: #202020 !important;
+}
+.header a:hover {
+  background: #f3f3f3;
+}
+.page .footer {
+  background: #f3f3f3;
+  border-top: 1px solid #202020;
+  --ct-ink: #202020;
+  --ct-ink-3: #505050;
+  --ct-ink-4: #606060;
+}
+.values > div > p:first-child,
+.section h2 > span:first-child,
+.more a p:first-child {
+  color: #202020 !important;
+}
+
+/* Content stays visible without JavaScript; motion starts only after observation. */
+.page [data-pending="true"] {
+  transition:
+    opacity 0.65s ease,
+    translate 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page [data-pending="true"]:not([data-visible="true"]) {
+  opacity: 0;
+  translate: 0 20px;
+}
+.page [data-reveal]:focus-within {
+  opacity: 1 !important;
+  translate: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page [data-pending="true"] {
+    opacity: 1 !important;
+    translate: none !important;
+    transition: none !important;
   }
 }

@@ -4,6 +4,7 @@
  * @module app
  * @dependencies SiteNav, SiteFooter, LearningField
  */
+import { ScrollMotion } from "@/components/ScrollMotion";
 import Link from "next/link";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -51,6 +52,7 @@ const PILLARS = [
 export default function Home() {
   return (
     <main className={styles.landing}>
+      <ScrollMotion />
       <header className={styles.header}>
         <SiteNav />
       </header>
@@ -60,12 +62,12 @@ export default function Home() {
           <span>배움의 새로운 가능성</span>
         </div>
         <LearningField />
-        <div className={styles.heroCopy}>
+        <div data-reveal className={styles.heroCopy}>
           <p className={styles.label}>A NEW SHAPE OF LEARNING</p>
           <h1 id="home-title">
-            하나의 수업,
+            Learning,
             <br />
-            저마다의 <span>가능성.</span>
+            <span>Reimagined</span>
           </h1>
           <div className={styles.heroBottom}>
             <p>
@@ -95,17 +97,17 @@ export default function Home() {
       <section className={styles.evidence} aria-label="연구와 교육 현장의 기반">
         <p className={styles.label}>GROUNDED IN THE REAL WORLD</p>
         <div className={styles.evidenceGrid}>
-          <div>
+          <div data-reveal>
             <span className={styles.evidenceMark}>01 / RESEARCH</span>
             <h2>연구에서 시작해</h2>
             <p>학습을 이해하는 질문과 탐구</p>
           </div>
-          <div>
+          <div data-reveal>
             <span className={styles.evidenceMark}>02 / PRACTICE</span>
             <h2>교육 현장에서 배우고</h2>
             <p>실제 수업과 학습자의 경험</p>
           </div>
-          <div>
+          <div data-reveal>
             <span className={styles.evidenceMark}>03 / PROGRESS</span>
             <h2>다음 배움으로 잇습니다</h2>
             <p>연구와 현장이 함께 만드는 변화</p>
@@ -118,7 +120,7 @@ export default function Home() {
           <span className={styles.label}>01 / RESEARCH</span>
           <span aria-hidden>↗</span>
         </div>
-        <div className={styles.researchGrid}>
+        <div data-reveal className={styles.researchGrid}>
           <div className={styles.researchArt} aria-hidden="true">
             <div className={styles.artCaption}>CURIOSITY → UNDERSTANDING</div>
             <svg viewBox="0 0 460 400" fill="none">
@@ -174,7 +176,7 @@ export default function Home() {
           <span className={styles.label}>02 / FEATURE</span>
           <span className={styles.label}>MANY WAYS TO GROW</span>
         </div>
-        <div className={styles.featureIntro}>
+        <div data-reveal className={styles.featureIntro}>
           <h2 id="features-title">
             배움의 방식은,
             <br />
@@ -189,6 +191,7 @@ export default function Home() {
         <div className={styles.cards}>
           {PILLARS.map((p, index) => (
             <Link
+              data-reveal
               key={p.slug}
               href={`/feature/${p.slug}`}
               className={styles.card}
@@ -212,6 +215,7 @@ export default function Home() {
             </Link>
           ))}
           <Link
+            data-reveal
             href="/product/aplus"
             className={`${styles.card} ${styles.productCard}`}
           >
