@@ -696,3 +696,35 @@
     stroke-dashoffset: 0;
   }
 }
+
+/* Restored three-shape field between evidence and research. */
+.learningBridge {
+  padding: 0 max(28px, calc((100% - 1320px) / 2)) 56px;
+  background: #f1f0e6;
+}
+@media (max-width: 600px) {
+  .learningBridge {
+    padding: 0 20px 35px;
+  }
+  .learningBridge .field {
+    height: auto;
+  }
+  .learningBridge .field svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 290;
+    transform: none;
+  }
+  .learningBridge .motionToggle {
+    position: static;
+    display: block;
+    margin: 6px 8px 8px auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learningBridge .motionToggle {
+    display: none;
+  }
+}
