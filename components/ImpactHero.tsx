@@ -46,7 +46,7 @@ export function ImpactHero() {
             </a>
           </div>
           <p className={styles.context}>
-            고려대학교 · 「생명과학의 세계」
+            서울 주요 대학 3,000명 규모 단일 강좌
             <br />
             <span>2026년 수업 운영 성과</span>
           </p>
@@ -153,8 +153,7 @@ export function ImpactHero() {
         </summary>
         <div>
           <p>
-            출처: 2026년 고려대학교 필수 교양 「생명과학의 세계」 운영 성과
-            자료.
+            출처: 2026년 서울 주요 대학 3,000명 규모 단일 강좌 운영 성과 자료.
           </p>
           <p>
             평균 점수는 Aplus 사용자 56.9점, 미사용자 43.9점으로 13점
