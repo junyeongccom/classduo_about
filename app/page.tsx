@@ -65,9 +65,9 @@ export default function Home() {
         <div data-reveal className={styles.heroCopy}>
           <p className={styles.label}>A NEW SHAPE OF LEARNING</p>
           <h1 id="home-title">
-            Learning,
+            하나의 수업,
             <br />
-            <span>Reimagined</span>
+            저마다의 <span>가능성.</span>
           </h1>
           <div className={styles.heroBottom}>
             <p>
