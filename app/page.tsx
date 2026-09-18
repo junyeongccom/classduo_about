@@ -8,6 +8,7 @@ import { ScrollMotion } from "@/components/ScrollMotion";
 import Link from "next/link";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { LearningField } from "@/components/LearningField";
 import { ImpactHero } from "@/components/ImpactHero";
 import impact from "@/components/ImpactHero.module.css";
 import styles from "./landing.module.css";
@@ -78,6 +79,13 @@ export default function Home() {
             <p>연구와 현장이 함께 만드는 변화</p>
           </div>
         </div>
+      </section>
+
+      <section
+        className={styles.learningBridge}
+        aria-label="각자의 배움으로 이어지는 학습 모션"
+      >
+        <LearningField />
       </section>
 
       <section className={styles.research} aria-labelledby="research-title">
