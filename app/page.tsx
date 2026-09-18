@@ -2,13 +2,14 @@
  * @file page.tsx
  * @description 가치 중심 메시지와 기하학 모션으로 구성한 클래스듀오 랜딩페이지
  * @module app
- * @dependencies SiteNav, SiteFooter, LearningField
+ * @dependencies SiteNav, SiteFooter, ImpactHero
  */
 import { ScrollMotion } from "@/components/ScrollMotion";
 import Link from "next/link";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { LearningField } from "@/components/LearningField";
+import { ImpactHero } from "@/components/ImpactHero";
+import impact from "@/components/ImpactHero.module.css";
 import styles from "./landing.module.css";
 
 const PILLARS = [
@@ -53,46 +54,10 @@ export default function Home() {
   return (
     <main className={styles.landing}>
       <ScrollMotion />
-      <header className={styles.header}>
+      <header className={`${styles.header} ${impact.header}`}>
         <SiteNav />
       </header>
-      <section className={styles.hero} aria-labelledby="home-title">
-        <div className={styles.eyebrow}>
-          <span>CLASSDUO — LEARNING, REIMAGINED</span>
-          <span>배움의 새로운 가능성</span>
-        </div>
-        <LearningField />
-        <div data-reveal className={styles.heroCopy}>
-          <p className={styles.label}>A NEW SHAPE OF LEARNING</p>
-          <h1 id="home-title">
-            하나의 수업,
-            <br />
-            저마다의 <span>가능성.</span>
-          </h1>
-          <div className={styles.heroBottom}>
-            <p>
-              같은 수업에서 시작해도, 배움의 길은 다릅니다.
-              <br />
-              우리는 AI로 각자의 이해가 깊어지는 학습을 만듭니다.
-            </p>
-            <div className={styles.actions}>
-              <Link className={styles.primary} href="/product/aplus">
-                제품 알아보기 <span aria-hidden>↗</span>
-              </Link>
-              <a
-                className={styles.secondary}
-                href="mailto:admin@aplus.io.kr?subject=%5B%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98%5D%20classduo.ai"
-              >
-                도입 문의 <span aria-hidden>↗</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className={styles.sectionEnd}>
-          <span>함께 배우고, 다르게 성장하다.</span>
-          <span aria-hidden>SCROLL TO EXPLORE ↓</span>
-        </div>
-      </section>
+      <ImpactHero />
 
       <section className={styles.evidence} aria-label="연구와 교육 현장의 기반">
         <p className={styles.label}>GROUNDED IN THE REAL WORLD</p>
