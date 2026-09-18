@@ -79,9 +79,9 @@ export function ImpactHero() {
               <span aria-hidden>− □ ×</span>
             </div>
             <div className={styles.windowBody}>
-              <p className={styles.chartLabel}>Aplus 사용자 집단의 평균 점수</p>
+              <p className={styles.chartLabel}>Aplus 사용자 집단의 평균 학업 성취(점수)</p>
               <div className={styles.score}>
-                +13<span>점</span>
+                +30<span>%</span>
                 <span className={styles.arrow} aria-hidden>
                   ↗
                 </span>
@@ -89,15 +89,15 @@ export function ImpactHero() {
               <p className={styles.comparison}>미사용자 집단 대비</p>
               <div
                 className={styles.chart}
-                aria-label="평균 점수: Aplus 사용자 56.9점, 미사용자 43.9점"
+                aria-label="평균 학업 성취(점수): Aplus 사용자 56.9점, 미사용자 43.9점"
               >
                 <div className={styles.barGroup}>
-                  <strong>56.9</strong>
+                  <strong>56.9점</strong>
                   <div className={styles.bar} style={{ height: 114 }} />
                   <span>Aplus 사용자</span>
                 </div>
                 <div className={styles.barGroup}>
-                  <strong>43.9</strong>
+                  <strong>43.9점</strong>
                   <div
                     className={`${styles.bar} ${styles.otherBar}`}
                     style={{ height: 88 }}
@@ -157,7 +157,9 @@ export function ImpactHero() {
           </p>
           <p>
             평균 점수는 Aplus 사용자 56.9점, 미사용자 43.9점으로 13점
-            차이입니다. 50점 미만 비율은 각각 14.7%, 59.4%로 44.7%p 차이입니다.
+            차이입니다. +30%는 미사용자 평균 대비 상대 차이
+            ((56.9 − 43.9) ÷ 43.9 × 100 ≈ 29.6%)를 반올림한 값입니다.
+            50점 미만 비율은 각각 14.7%, 59.4%로 44.7%p 차이입니다.
             동일 수업의 집단 비교이며, 개인의 사전·사후 점수 상승이나 인과효과를
             의미하지 않습니다.
           </p>

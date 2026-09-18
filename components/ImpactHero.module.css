@@ -2,7 +2,21 @@
 .header {
   background: #fafaf7;
   --ct-ink: #202020;
+  --ct-ink-3: #606060;
+  --ct-ink-4: #606060;
+  --ct-line: #20202040;
+  --ct-line-soft: #2020202a;
   border-bottom-color: #20202035;
+}
+.header button:hover,
+.header button[aria-expanded="true"],
+.header a:hover,
+.header a:active {
+  color: #202020 !important;
+}
+.header a:hover,
+.header a:active {
+  background: #f3f3f3;
 }
 .hero {
   background: #fafaf7;
