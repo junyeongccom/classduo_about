@@ -26,15 +26,9 @@ export function ImpactHero() {
             <span aria-hidden>✳</span> 실제 수업에서 만난 배움의 가능성
           </p>
           <h1 id="home-title">
-            수업에서 이미
+            수업에서 이미 오간 것으로,
             <br />
-            오간 것으로,
-            <br />
-            <span>
-              학생마다 다른
-              <br />
-              학습을 만듭니다
-            </span>
+            <span>학생마다 다른 학습을 만듭니다</span>
           </h1>
           <p className={styles.description}>
             더 깊이 이해하고, 더 멀리 나아가도록.
