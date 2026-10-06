@@ -18,7 +18,7 @@ export function SiteFooter({ className = '' }: { className?: string }) {
           주소: 서울특별시 성북구 안암로 145, 경영본관동 2층 227호(안암동5가,
           고려대학교안암캠퍼스)
         </p>
-        <p>전화: 02-6951-0048 | 이메일: admin@aplus.io.kr</p>
+        <p>전화: 02-6951-0048 | 이메일: alex@classduo.ai.kr</p>
         <p className="mt-2 text-[color:var(--ct-ink-4)]">© 2026 classduo.ai. All rights reserved.</p>
       </div>
     </footer>
